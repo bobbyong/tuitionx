@@ -5041,3 +5041,6 @@ a.badge:hover {
     margin-top:-100px; 
 }
 
+.signup-button{
+    float: right;
+}
