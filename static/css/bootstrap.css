@@ -4946,6 +4946,7 @@ a.badge:hover {
   -webkit-border-radius: 6px;
      -moz-border-radius: 6px;
           border-radius: 6px;
+  text-align: justify;
 }
 
 .hero-unit h1 {
@@ -4983,6 +4984,13 @@ a.badge:hover {
   visibility: hidden;
 }
 
+
+
+
+/* ##### SELF-ADDED CSS TO BOOTSTRAP ##### */
+
+
+
 .videoWrapper {
         position: relative;
         padding-bottom: 56.25%; /* 56.25%  16:9 */
@@ -5003,4 +5011,27 @@ a.badge:hover {
 
 .front-page-button {
   float: right;
+}
+
+.video {
+  float: left;
+  width:500px;
+  margin-left: 30px;
+}  
+
+
+.playlist {
+  float: right;
+  width: 350px;
+}
+
+
+.row-fluid .video {
+  width: 35%;
+  *width: 35%;
+}
+
+.row-fluid .playlist {
+  width: 35%;
+  *width: 35%;
 }

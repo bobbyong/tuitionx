@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	
+	<div class="row">
+        
+        <div class="video">
+          <h2>{{playlist[id][1]}}</h2>
+           <br>
+           <p><iframe width="698" height="393" src="http://www.youtube.com/embed/{{playlist[id][2]}}?wmode=transparent" frameborder="0" allowfullscreen></iframe></p>
+        </div>
+        
+        <div class="playlist">
+          <h2>Video List</h2>
+          <br>
+           <p>
+           	{% for p in playlist %}
+				<a href = "/playlist/{{p[0]}}">{{ p[1] }}</a>
+				<br>
+			{% endfor %}
+			</p>
+          
+        </div>
+        
+      </div>
+
+{% endblock %}

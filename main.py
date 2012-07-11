@@ -15,6 +15,7 @@
 # limitations under the License.
 #
 import os
+import re
 
 import webapp2
 import jinja2
@@ -48,7 +49,27 @@ class MainHandler(PageHandler):
         self.render('main.html')
 
 
+##### Video Playlist Page #####
+
+class PlaylistHandler(PageHandler):
+    def get(self, id):
+        playlist = [(1, 'Video #1', 'bzE--l_Lj0A'), 
+                    (2, 'Video #2', 'BURnfFozfO4'), 
+                    (3, 'Video #3', 'luUD5CXMj3w'),
+                    (4, 'Video #4', 'fNuk6j3nfmM'),
+                    (5, 'Video #5', 'QGSt9Z4_WA8'),
+                    (6, 'Video #6', '8OQnI8MJ6x0'),
+                    (7, 'Video #7', 'KXsY2r1_9C0'),
+                    (8, 'Video #8', '27NX_MMIkLY')]
+        
+
+        self.render('playlist.html', playlist = playlist, id=int(id)-1)
+
+
+
 ##### URL Mapping #####
 
-app = webapp2.WSGIApplication([('/', MainHandler)],
+app = webapp2.WSGIApplication([('/', MainHandler),
+                               ('/playlist/([0-9]+)', PlaylistHandler)],
                               debug=True)
+
