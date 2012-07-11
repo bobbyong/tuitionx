@@ -74,8 +74,8 @@ quiz = [(1, 'What is the product of 5 and 10?', '10', '5', '50', '20', 3),
 
 class QuizHandler(PageHandler):
     def get(self, id):
-        tuple_id = int(id) - 1
-        self.render('quiz.html', solution = '', quiz = quiz, id=tuple_id)       
+        
+        self.render('quiz.html', quiz = quiz, id=int(id)-1)       
 
 
     def post(self, id):
@@ -83,10 +83,14 @@ class QuizHandler(PageHandler):
         id = int(id)
         tuple_id = int(id) - 1
         if int(answer) == quiz[tuple_id][-1]:
-            self.redirect("/quiz/%s" % str(id+1)) 
             
+            self.write("You got it right!")
+            if id+1 <= len(quiz):
+                self.write('<br><a href="/quiz/%s">Next</a>' % str(id+1))
+            else:
+                self.write('<br>No more question')
         else:
-            self.render("/quiz.html", solution = 'You got it wrong. Try again.', quiz = quiz, id = tuple_id)    
+            self.write("You got it wrong")    
 
 ##### URL Mapping #####
 
