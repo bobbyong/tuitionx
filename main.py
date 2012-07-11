@@ -61,15 +61,37 @@ class PlaylistHandler(PageHandler):
                     (6, 'Video #6', '8OQnI8MJ6x0'),
                     (7, 'Video #7', 'KXsY2r1_9C0'),
                     (8, 'Video #8', '27NX_MMIkLY')]
-        
 
         self.render('playlist.html', playlist = playlist, id=int(id)-1)
 
 
+##### Quizzes Page #####
+
+quiz = [(1, 'What is the product of 5 and 10?', '10', '5', '50', '20', 3), 
+        (2, 'What is the sum of 35 and 25?', '60', '40', '55', '20', 1), 
+        (3, 'Who is the current Prime Minister of UK?', 'Margaret Thatcher', 'Tony Blair', 'Gordon Brown', 'David Cameron', 4)]
+        
+
+class QuizHandler(PageHandler):
+    def get(self, id):
+        tuple_id = int(id) - 1
+        self.render('quiz.html', solution = '', quiz = quiz, id=tuple_id)       
+
+
+    def post(self, id):
+        answer = self.request.get("quiz%s" %id) 
+        id = int(id)
+        tuple_id = int(id) - 1
+        if int(answer) == quiz[tuple_id][-1]:
+            self.redirect("/quiz/%s" % str(id+1)) 
+            
+        else:
+            self.render("/quiz.html", solution = 'You got it wrong. Try again.', quiz = quiz, id = tuple_id)    
 
 ##### URL Mapping #####
 
 app = webapp2.WSGIApplication([('/', MainHandler),
-                               ('/playlist/([0-9]+)', PlaylistHandler)],
+                               ('/playlist/([0-9]+)', PlaylistHandler),
+                               ('/quiz/([0-9]+)', QuizHandler)],
                               debug=True)
 

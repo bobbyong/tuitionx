@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	
+	<div class="row">
+        <div class="span8">
+          {{ solution }}
+        </div>  
+
+        <div class="span8">
+          <h2>{{ quiz[id][1] }}</h2>
+            <br>
+            <form method = "post">
+              <input type="radio" name="quiz{{ id+1 }}" value="1" /> {{ quiz[id][2] }}<br>
+              <input type="radio" name="quiz{{ id+1 }}" value="2" /> {{ quiz[id][3] }}<br>
+              <input type="radio" name="quiz{{ id+1 }}" value="3" /> {{ quiz[id][4] }}<br>
+              <input type="radio" name="quiz{{ id+1 }}" value="4" /> {{ quiz[id][5] }}
+              <br><br>
+              <button type="submit" class="btn">Answer</button>
+            </form>
+        </div>
+        
+        <div class="span4">
+          <h2>Question List</h2>
+          <br>
+            <p>
+           	  {% for q in quiz %}
+				        <a href = "/quiz/{{q[0]}}">{{ q[1] }}</a>
+				        <br>
+			        {% endfor %}
+			      </p>     
+
+            <div class = "playlist-button">
+              <a href = "/playlist/1" class="btn btn-primary btn-large">Continue Learning &raquo;</a>
+            </div>
+        </div>
+        
+  </div>
+
+{% endblock %}
