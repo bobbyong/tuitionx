@@ -5009,6 +5009,27 @@ a.badge:hover {
         height: 100%;
 }
 
+
+.videoWrapperPlaylist {
+        position: relative;
+        padding-bottom: 56.25%; /* 56.25%  16:9 */
+        padding-top: 25px;
+        height: 0;
+        margin-top: -5px;
+        margin-bottom: 20px;
+        z-index:1;
+      }
+
+.videoWrapperPlaylist iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+}
+
+
+
 .front-page-button {
   float: right;
 }
@@ -5016,6 +5037,7 @@ a.badge:hover {
 .playlist-button{
     position: absolute; 
     height: 100px; 
-    top: 85%; 
+    top: 94%; 
     margin-top:-100px; 
 }
+

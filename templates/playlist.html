@@ -8,7 +8,10 @@
         <div class="span8">
           <h2>{{playlist[id][1]}}</h2>
            <br>
-           <p><iframe width="698" height="393" src="http://www.youtube.com/embed/{{playlist[id][2]}}?wmode=transparent" frameborder="0" allowfullscreen></iframe></p>
+           <p>
+            <div class="videoWrapperPlaylist">
+              <iframe src="http://www.youtube.com/embed/{{playlist[id][2]}}?wmode=transparent" frameborder="0" allowfullscreen></iframe></p>
+            </div>
         </div>
         
         <div class="span4">
@@ -22,7 +25,7 @@
 			      </p>     
 
             <div class = "playlist-button">
-              <a href = "/playlist/1" class="btn btn-primary btn-large">Continue Learning &raquo;</a>
+              <a href = "/quiz/1" class="btn btn-primary btn-large">Continue Learning &raquo;</a>
             </div>
         </div>
         

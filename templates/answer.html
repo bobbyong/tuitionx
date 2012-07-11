@@ -6,10 +6,26 @@
 	<div class="row">
         
         <div class="span8">
+          <h2>
+            <!-- Quiz Question -->
+            {{ quiz[tuple_id][1] }}
+          </h2>
+          
+          <br>
+          <h2>
+            <!-- Print Correct or Wrong Answer Statement -->
+            {{ solution }}
+          </h2>
 
-          {{ solution }}
-          <br>Explanation...Explanation...Explanation...
-          <br>{{ nextquestion | safe }}
+          <br>You answered {{ given_answer }}.
+          <br>The right answer is {{ correct_answer }}.
+          
+          <br><br><br>Explanation...Explanation...Explanation...
+          
+
+          <!-- Next Question Link -->
+          <br><br>{{ nextquestion | safe }}
+
         </div>
         
         <div class="span4">
@@ -22,9 +38,7 @@
 			        {% endfor %}
 			      </p>     
 
-            <div class = "playlist-button">
-              <a href = "/playlist/1" class="btn btn-primary btn-large">Continue Learning &raquo;</a>
-            </div>
+            
         </div>
         
   </div>

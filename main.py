@@ -70,28 +70,36 @@ class PlaylistHandler(PageHandler):
 quiz = [(1, 'What is the product of 5 and 10?', '10', '5', '50', '20', 3), 
         (2, 'What is the sum of 35 and 25?', '60', '40', '55', '20', 1), 
         (3, 'Who is the current Prime Minister of UK?', 'Margaret Thatcher', 'Tony Blair', 'Gordon Brown', 'David Cameron', 4)]
-        
+
+#quiz format follows the following format (id, question, option1, option2, option3, option4, right answer)        
 
 class QuizHandler(PageHandler):
     def get(self, id):
-        
-        self.render('quiz.html', quiz = quiz, id=int(id)-1)       
+        tuple_id = int(id)-1
+        self.render('quiz.html', quiz = quiz, id=tuple_id)       
 
 
     def post(self, id):
-        answer = self.request.get("quiz%s" %id) 
-        id = int(id)
-        tuple_id = int(id) - 1
-        if int(answer) == quiz[tuple_id][-1]:
+        
+        answer = self.request.get("quiz%s" %id)                     #get answer from form in 1,2,3,4 type
+        id = int(id)                                                #makes the id given in url an integer
+        tuple_id = int(id) - 1                                      #refer to the id on the quiz tuple
+        right_answer = "You got it right."
+        wrong_answer = "You got it wrong."
+        correct_answer = quiz[tuple_id][1 + quiz[tuple_id][-1]]     #print the correct answer in value type eg David Cameron
+        given_answer = quiz[tuple_id][1 + int(answer)]              #print the answer given in value type eg Margaret Thatcher 
+
+
+        if int(answer) == quiz[tuple_id][-1]:                       #checks submitted answer with correct answer in tuple list
             if id+1 <= len(quiz):
-                self.render("answer.html", solution = "You got it right", nextquestion = '<a href="/quiz/%s">Next Question</a>' % str(id+1), id=str(id+1))
+                self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = right_answer, nextquestion = '<a href="/quiz/%s">Next Question</a>' % str(id+1), id=str(id+1))
             else:
-                self.render("answer.html", solution = "You got it right", nextquestion = "No more questions", id=str(id+1))
+                self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = right_answer, nextquestion = "No more questions", id=str(id+1))
         else:
             if id+1 <= len(quiz):
-                self.render("answer.html", solution = "You got it wrong", nextquestion = '<a href="/quiz/%s">Next Question</a>' % str(id+1), id=str(id+1))
+                self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = wrong_answer, nextquestion = '<a href="/quiz/%s">Next Question</a>' % str(id+1), id=str(id+1))
             else:
-                self.render("answer.html", solution = "You got it wrong", nextquestion = "No more questions", id=str(id+1))
+                self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = wrong_answer, nextquestion = "No more questions", id=str(id+1))
 
 
 ##### URL Mapping #####
