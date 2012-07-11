@@ -83,14 +83,16 @@ class QuizHandler(PageHandler):
         id = int(id)
         tuple_id = int(id) - 1
         if int(answer) == quiz[tuple_id][-1]:
-            
-            self.write("You got it right!")
             if id+1 <= len(quiz):
-                self.write('<br><a href="/quiz/%s">Next</a>' % str(id+1))
+                self.render("answer.html", solution = "You got it right", nextquestion = '<a href="/quiz/%s">Next Question</a>' % str(id+1), id=str(id+1))
             else:
-                self.write('<br>No more question')
+                self.render("answer.html", solution = "You got it right", nextquestion = "No more questions", id=str(id+1))
         else:
-            self.write("You got it wrong")    
+            if id+1 <= len(quiz):
+                self.render("answer.html", solution = "You got it wrong", nextquestion = '<a href="/quiz/%s">Next Question</a>' % str(id+1), id=str(id+1))
+            else:
+                self.render("answer.html", solution = "You got it wrong", nextquestion = "No more questions", id=str(id+1))
+
 
 ##### URL Mapping #####
 
