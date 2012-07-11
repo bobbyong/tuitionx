@@ -101,19 +101,22 @@ class QuizHandler(PageHandler):
                         <br>To continue, you will have to register. Otherwise all your great progress will be lost forever.</em></b><br><br>
                         <a href = "/signup" class="btn btn-primary btn-large">Sign Up Now &raquo;</a>
                         """  
-        #signup_button SHOULD NOT be in this python/controller file --> it should be in the TEMPLATE/view/quiz.html file
-        #signup_button is here for temporary convenience sake                  
+
+        next_button = '<a href="/quiz/%s" class="btn btn-primary btn-large">Next Question &raquo;</a>' % str(id+1)                                    
+
+        #signup_button and next_button SHOULD NOT be in this python/controller file --> it should be in the TEMPLATE/view/quiz.html file
+        #signup_button and next_button is here for temporary convenience sake                  
 
 
 
         if int(answer) == quiz[tuple_id][-1]:                       #checks submitted answer with correct answer in tuple list
             if id+1 <= len(quiz):                                   #checks to see if this is the last question
-                self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = right_answer, explanation = explanation, nextquestion = '<a href="/quiz/%s">Next Question</a>' % str(id+1))
+                self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = right_answer, explanation = explanation, nextquestion = next_button)
             else:
                 self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = right_answer, explanation = explanation, nextquestion = signup_button)
         else:                                                       #if wrong answer
             if id+1 <= len(quiz):                                   #if wrong answer and last question                
-                self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = wrong_answer, explanation = explanation, nextquestion = '<a href="/quiz/%s">Next Question</a>' % str(id+1))
+                self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = wrong_answer, explanation = explanation, nextquestion = next_button)
             else:
                 self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = wrong_answer, explanation = explanation, nextquestion = signup_button)
 
