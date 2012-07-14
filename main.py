@@ -71,7 +71,7 @@ quiz = [(1, 'What is the product of 5 and 10?', '10', '5', '50', '20', 'This is 
         (2, 'What is the sum of 35 and 25?', '60', '40', '55', '20', 'This is Explanation for Q2.', 1), 
         (3, 'Who is the current Prime Minister of UK?', 'Margaret Thatcher', 'Tony Blair', 'Gordon Brown', 'David Cameron', 'This is Explanation for Q3.', 4)]
 
-#quiz format follows the following format (id, question, option1, option2, option3, option4, answer explanation, right answer)        
+        #quiz format follows the following format (id, question, option1, option2, option3, option4, answer explanation, right answer)        
 
 class QuizHandler(PageHandler):
     def get(self, id):
@@ -121,10 +121,24 @@ class QuizHandler(PageHandler):
                 self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = wrong_answer, explanation = explanation, nextquestion = signup_button)
 
 
+
+
+##### SignUp Page #####
+
+class SignUpHandler(PageHandler):
+    def get(self):
+        self.write('SignUp Page')
+
+
+
+
+
+
 ##### URL Mapping #####
 
 app = webapp2.WSGIApplication([('/', MainHandler),
                                ('/playlist/([0-9]+)', PlaylistHandler),
-                               ('/quiz/([0-9]+)', QuizHandler)],
+                               ('/quiz/([0-9]+)', QuizHandler),
+                               ('/signup', SignUpHandler)],
                               debug=True)
 

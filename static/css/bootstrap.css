@@ -5034,13 +5034,12 @@ a.badge:hover {
   float: right;
 }
 
-.playlist-button{
-    position: absolute; 
-    height: 100px; 
-    top: 94%; 
-    margin-top:-100px; 
+
+.signup-button {
+    float: right;
 }
 
-.signup-button{
-    float: right;
+.playlist-button {
+  margin-top: -5px;
+  float: right;  
 }
