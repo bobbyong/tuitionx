@@ -5043,3 +5043,7 @@ a.badge:hover {
   margin-top: -5px;
   float: right;  
 }
+
+.signup-error {
+  color: #EE0000;
+}

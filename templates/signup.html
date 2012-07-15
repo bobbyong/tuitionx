@@ -9,16 +9,17 @@
           <h2>Registration</h2>
           <br><br>
           <form method="post">
+
             <label>Email:</label>
-            <input type="text" name="username" value="">{{error_email}}
+            <input type="text" name="email" value=""> <span class="signup-error">{{error_email}}{{error_email_register}}</span>
             
             <br><br>
             <label>Re-enter Email:</label>
-            <input type="text" name="username" value="">{{error_verify}}
+            <input type="text" name="verify" value=""> <span class="signup-error">{{error_verify}}</span>
 
             <br><br>
             <label>Password:</label>
-            <input type="text" name="username" value="">{{error_password}}
+            <input type="password" name="password" value=""> <span class="signup-error">{{error_password}}</span>
                   
             <br><br>  
             <button type="submit" class="btn">Register</button>

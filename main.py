@@ -16,10 +16,13 @@
 #
 import os
 import re
+import hashlib
 
 import webapp2
 import jinja2
 import logging
+
+from google.appengine.ext import db
 
 ##### Website Page Handlers #####
 
@@ -43,6 +46,20 @@ class PageHandler(webapp2.RequestHandler):
         self.write(self.render_str(template, **kw))
 
 
+
+
+
+##### User Database Stuff
+
+class User(db.Model):
+    email = db.StringProperty(required = True)
+    password = db.StringProperty(required = True)
+    joined = db.DateTimeProperty(auto_now_add = True)
+
+    
+      
+      
+
 ##### Main Page #####
 
 class MainHandler(PageHandler):
@@ -56,12 +73,7 @@ class PlaylistHandler(PageHandler):
     def get(self, id):
         playlist = [(1, 'Video #1', 'bzE--l_Lj0A'), 
                     (2, 'Video #2', 'BURnfFozfO4'), 
-                    (3, 'Video #3', 'luUD5CXMj3w'),
-                    (4, 'Video #4', 'fNuk6j3nfmM'),
-                    (5, 'Video #5', 'QGSt9Z4_WA8'),
-                    (6, 'Video #6', '8OQnI8MJ6x0'),
-                    (7, 'Video #7', 'KXsY2r1_9C0'),
-                    (8, 'Video #8', '27NX_MMIkLY')]
+                    (3, 'Video #3', 'luUD5CXMj3w')]
 
         while int(id)<len(playlist):            
             self.render('playlist.html', playlist = playlist, id=int(id)-1, url = '/playlist/%s' %str(int(id)+1), button = "Next Video")
@@ -128,6 +140,7 @@ class QuizHandler(PageHandler):
 
 
 
+
 ##### SignUp Page #####
 
 
@@ -139,13 +152,59 @@ EMAIL_RE  = re.compile(r'^[\S]+@[\S]+\.[\S]+$')
 def valid_email(email):
     return not email or EMAIL_RE.match(email)
 
+def hash_str(s):
+    return hashlib.md5(s).hexdigest()
+
 
 class SignUpHandler(PageHandler):
     def get(self):
         self.render('signup.html')
 
     def post(self):
-        self.write('Thank you')
+        have_error = False
+        email = self.request.get('email')
+        verify = self.request.get('verify')
+        password = self.request.get('password')
+        
+        params = dict(email = email)
+
+        que = db.Query(User).filter("email =", email).fetch(limit=1)
+
+        if que:
+            params['error_email_register'] = "That email address is already registered."
+            have_error = True
+        
+        if not valid_password(password):
+            params['error_password'] = "That is not a valid password."
+            have_error = True
+        
+        elif email != verify:
+            params['error_verify'] = "Your email addresses do not match."
+            have_error = True
+
+        if not valid_email(email):
+            params['error_email'] = "That is not a valid email address."
+            have_error = True
+
+        if have_error:
+            self.render('signup.html', **params)
+
+        else:      
+            u = User(email=email, password=hash_str(password))
+            u.put()     
+            
+            self.render('welcome.html') 
+
+
+
+
+
+
+##### About Handler #####
+
+class AboutHandler(PageHandler):
+    def get(self):
+        self.render('about.html')
 
 
 
@@ -155,6 +214,7 @@ class SignUpHandler(PageHandler):
 app = webapp2.WSGIApplication([('/', MainHandler),
                                ('/playlist/([0-9]+)', PlaylistHandler),
                                ('/quiz/([0-9]+)', QuizHandler),
-                               ('/signup', SignUpHandler)],
+                               ('/signup', SignUpHandler),
+                               ('/about', AboutHandler)],
                               debug=True)
 
