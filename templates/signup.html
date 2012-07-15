@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	
+	<div class="row">
+        
+        <div class="span8">
+          <h2>Registration</h2>
+          <br><br>
+          <form method="post">
+            <label>Email:</label>
+            <input type="text" name="username" value="">{{error_email}}
+            
+            <br><br>
+            <label>Re-enter Email:</label>
+            <input type="text" name="username" value="">{{error_verify}}
+
+            <br><br>
+            <label>Password:</label>
+            <input type="text" name="username" value="">{{error_password}}
+                  
+            <br><br>  
+            <button type="submit" class="btn">Register</button>
+          </form>
+
+        </div>
+        
+        
+        
+        
+        
+  </div>
+
+{% endblock %}

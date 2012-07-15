@@ -27,6 +27,7 @@ template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
                                autoescape = True)
 
+
 def render_str(template, **params):
     t = jinja_env.get_template(template)
     return t.render(params)
@@ -62,8 +63,12 @@ class PlaylistHandler(PageHandler):
                     (7, 'Video #7', 'KXsY2r1_9C0'),
                     (8, 'Video #8', '27NX_MMIkLY')]
 
-        self.render('playlist.html', playlist = playlist, id=int(id)-1)
-
+        while int(id)<len(playlist):            
+            self.render('playlist.html', playlist = playlist, id=int(id)-1, url = '/playlist/%s' %str(int(id)+1), button = "Next Video")
+            return
+        
+        self.render('playlist.html', playlist = playlist, id=int(id)-1, url = '/quiz/1', button = 'Continue Learning')
+                
 
 ##### Quizzes Page #####
 
@@ -125,11 +130,22 @@ class QuizHandler(PageHandler):
 
 ##### SignUp Page #####
 
+
+PASS_RE = re.compile(r"^.{3,20}$")
+def valid_password(password):
+    return password and PASS_RE.match(password)
+
+EMAIL_RE  = re.compile(r'^[\S]+@[\S]+\.[\S]+$')
+def valid_email(email):
+    return not email or EMAIL_RE.match(email)
+
+
 class SignUpHandler(PageHandler):
     def get(self):
-        self.write('SignUp Page')
+        self.render('signup.html')
 
-
+    def post(self):
+        self.write('Thank you')
 
 
 
