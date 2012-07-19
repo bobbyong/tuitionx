@@ -6,7 +6,7 @@
 	<div class="row">
 
         <div class="span8">
-          <h2>{{ quiz[id][1] }}</h2>
+          <h2>{{ quiz[id][1] | safe}}</h2>
             <br>
             <form method = "post">
               <input type="radio" name="quiz{{ id+1 }}" value="1" /> {{ quiz[id][2] }}<br>
@@ -19,15 +19,27 @@
         </div>
         
         <div class="span4">
-          <h2>Question List</h2>
+          <h2>Quiz List</h2>
           <br>
             <p>
            	  {% for q in quiz %}
-				        <a href = "/quiz/{{q[0]}}">{{ q[1] }}</a>
+				        <a href = "/quiz/{{q[0]}}">{{ q[0] }}. {{ q[1] | safe}}</a>
 				        <br>
 			        {% endfor %}
 			      </p>     
 
+            <br>
+            <h2>Video List</h2>
+            <br>
+            <p>
+              {% for p in playlist %}
+                <a href = "/playlist/{{p[0]}}">{{ p[1] }}</a>
+                <br>
+              {% endfor %}
+            </p>  
+
+            <br>
+            <h2><a href = "/signup">Sign Up</a></h2>  
             
         </div>
         

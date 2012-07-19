@@ -49,7 +49,7 @@ class PageHandler(webapp2.RequestHandler):
 
 
 
-##### User Database Stuff
+##### User Database Stuff #####
 
 class User(db.Model):
     email = db.StringProperty(required = True)
@@ -57,8 +57,29 @@ class User(db.Model):
     joined = db.DateTimeProperty(auto_now_add = True)
 
     
+
+
+
+##### Playlist and Quiz List #####
+
+playlist = [(1, 'Form 4 Add Maths Chapter 2 Introduction', 'bzE--l_Lj0A'),
+                    (2, 'Quadratic Equations - Introduction', 'bzE--l_Lj0A'), 
+                    (3, 'Quadratic Equations - Determining Roots', 'BURnfFozfO4'), 
+                    (4, 'Quadratic Equations - Factorisation', 'luUD5CXMj3w'),
+                    (5, 'Quadratic Equations - Completing the Square', 'bzE--l_Lj0A'),
+                    (6, 'Quadratic Equations - Quadratic Formula', 'bzE--l_Lj0A'),
+                    (7, 'Quadratic Equations - Types of Roots', 'bzE--l_Lj0A'),
+                    (8, 'Quadratic Equations - Types of Roots Sample Question', 'bzE--l_Lj0A')]
       
-      
+
+quiz = [(1, 'Solve the quadratic equation x(2x-3) = 2x+1. Give your answer correct to three decimal places.', 'x = 2.686 OR x = -0.186', 'x = 3.576 OR x = 2.102', 'x = -1.335 OR x = 1.353', 'x = 1.282 OR x = -3.521', 'bzE--l_Lj0A', 1), 
+        (2, 'Find the range of values of <i>p</i> given that the quadratic equation x<sup>2</sup> = 5x+2-<i>p</i> has no roots.', 'p > 23/5', 'p < 33/4', 'p > 33/4', 'p < 23/5', 'bzE--l_Lj0A', 3)]
+
+        #quiz format follows the following format (id, question, option1, option2, option3, option4, answer explanation, right answer)        
+
+
+
+
 
 ##### Main Page #####
 
@@ -71,29 +92,20 @@ class MainHandler(PageHandler):
 
 class PlaylistHandler(PageHandler):
     def get(self, id):
-        playlist = [(1, 'Video #1', 'bzE--l_Lj0A'), 
-                    (2, 'Video #2', 'BURnfFozfO4'), 
-                    (3, 'Video #3', 'luUD5CXMj3w')]
-
+        
         while int(id)<len(playlist):            
-            self.render('playlist.html', playlist = playlist, id=int(id)-1, url = '/playlist/%s' %str(int(id)+1), button = "Next Video")
+            self.render('playlist.html', quiz = quiz, playlist = playlist, id=int(id)-1, url = '/playlist/%s' %str(int(id)+1), button = "Next Video")
             return
         
-        self.render('playlist.html', playlist = playlist, id=int(id)-1, url = '/quiz/1', button = 'Continue Learning')
+        self.render('playlist.html', quiz = quiz, playlist = playlist, id=int(id)-1, url = '/quiz/1', button = 'Continue Learning')
                 
 
 ##### Quizzes Page #####
 
-quiz = [(1, 'What is the product of 5 and 10?', '10', '5', '50', '20', 'This is Explanation for Q1.', 3), 
-        (2, 'What is the sum of 35 and 25?', '60', '40', '55', '20', 'This is Explanation for Q2.', 1), 
-        (3, 'Who is the current Prime Minister of UK?', 'Margaret Thatcher', 'Tony Blair', 'Gordon Brown', 'David Cameron', 'This is Explanation for Q3.', 4)]
-
-        #quiz format follows the following format (id, question, option1, option2, option3, option4, answer explanation, right answer)        
-
 class QuizHandler(PageHandler):
     def get(self, id):
         tuple_id = int(id)-1
-        self.render('quiz.html', quiz = quiz, id=tuple_id)       
+        self.render('quiz.html', quiz = quiz, id=tuple_id, playlist=playlist)       
 
 
     def post(self, id):
@@ -111,7 +123,7 @@ class QuizHandler(PageHandler):
         correct_answer = quiz[tuple_id][1 + quiz[tuple_id][-1]]     #print the correct answer in value type eg David Cameron
         given_answer = quiz[tuple_id][1 + int(answer)]              #print the answer given in value type eg Margaret Thatcher 
         explanation = quiz[tuple_id][-2]
-        
+
 
         signup_button = """
                         <br><b><em>Congratulations on reaching this far in your learning. 
@@ -119,7 +131,7 @@ class QuizHandler(PageHandler):
                         <a href = "/signup" class="btn btn-primary btn-large">Sign Up Now &raquo;</a>
                         """  
 
-        next_button = '<a href="/quiz/%s" class="btn btn-primary btn-large">Next Question &raquo;</a>' % str(id+1)                                    
+        next_button = '<div class="playlist-button"><a href="/quiz/%s" class="btn btn-primary btn-large">Next Question &raquo;</a></div>' % str(id+1)                                    
 
         #signup_button and next_button SHOULD NOT be in this python/controller file --> it should be in the TEMPLATE/view/quiz.html file
         #signup_button and next_button is here for temporary convenience sake                  
@@ -128,14 +140,14 @@ class QuizHandler(PageHandler):
 
         if int(answer) == quiz[tuple_id][-1]:                       #checks submitted answer with correct answer in tuple list
             if id+1 <= len(quiz):                                   #checks to see if this is the last question
-                self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = right_answer, explanation = explanation, nextquestion = next_button)
+                self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = right_answer, explanation = explanation, nextquestion = next_button, playlist = playlist)
             else:
-                self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = right_answer, explanation = explanation, nextquestion = signup_button)
+                self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = right_answer, explanation = explanation, nextquestion = signup_button, playlist = playlist)
         else:                                                       #if wrong answer
             if id+1 <= len(quiz):                                   #if wrong answer and last question                
-                self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = wrong_answer, explanation = explanation, nextquestion = next_button)
+                self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = wrong_answer, explanation = explanation, nextquestion = next_button, playlist = playlist)
             else:
-                self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = wrong_answer, explanation = explanation, nextquestion = signup_button)
+                self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = wrong_answer, explanation = explanation, nextquestion = signup_button, playlist = playlist)
 
 
 
@@ -214,7 +226,6 @@ class AboutHandler(PageHandler):
 app = webapp2.WSGIApplication([('/', MainHandler),
                                ('/playlist/([0-9]+)', PlaylistHandler),
                                ('/quiz/([0-9]+)', QuizHandler),
-                               ('/signup', SignUpHandler),
-                               ('/about', AboutHandler)],
+                               ('/signup', SignUpHandler)],
                               debug=True)
 

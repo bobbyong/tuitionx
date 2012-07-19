@@ -15,6 +15,7 @@
             <div class = "playlist-button">
               <a href = "{{ url }}" class="btn btn-primary btn-large">{{ button }} &raquo;</a>
               </div>
+
         </div>
         
         <div class="span4">
@@ -26,7 +27,20 @@
 				        <br>
 			        {% endfor %}
 			      </p>     
-            
+          
+          <br>
+          <h2>Quiz List</h2>
+          <br>
+            <p>
+              {% for q in quiz %}
+                <a href = "/quiz/{{q[0]}}">{{ q[0] }}. {{ q[1] | safe}}</a>
+                <br>
+              {% endfor %}
+            </p>
+
+          <br>
+          <h2><a href = "/signup">Sign Up</a></h2>
+              
         </div>
 
         
