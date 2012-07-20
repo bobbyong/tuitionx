@@ -62,18 +62,18 @@ class User(db.Model):
 
 ##### Playlist and Quiz List #####
 
-playlist = [(1, 'Form 4 Add Maths Chapter 2 Introduction', 'bzE--l_Lj0A'),
-                    (2, 'Quadratic Equations - Introduction', 'bzE--l_Lj0A'), 
-                    (3, 'Quadratic Equations - Determining Roots', 'BURnfFozfO4'), 
-                    (4, 'Quadratic Equations - Factorisation', 'luUD5CXMj3w'),
-                    (5, 'Quadratic Equations - Completing the Square', 'bzE--l_Lj0A'),
-                    (6, 'Quadratic Equations - Quadratic Formula', 'bzE--l_Lj0A'),
-                    (7, 'Quadratic Equations - Types of Roots', 'bzE--l_Lj0A'),
-                    (8, 'Quadratic Equations - Types of Roots Sample Question', 'bzE--l_Lj0A')]
+playlist = [(1, 'Form 4 Add Maths Chapter 2 Introduction', 'Jg0nvDjdqsI'),
+            (2, 'Quadratic Equations - Introduction', 'bp6_gAesCTk'), 
+            (3, 'Quadratic Equations - Determining Roots', '2pW7MF6kL74'), 
+            (4, 'Quadratic Equations - Factorisation', 'Pl6eaqIcqdg'),
+            (5, 'Quadratic Equations - Completing the Square', 'ooD8CvFPhig'),
+            (6, 'Quadratic Equations - Quadratic Formula', 'SKDw3EtBabs'),
+            (7, 'Quadratic Equations - Types of Roots', 'Sd15kSxzM0w'),
+            (8, 'Quadratic Equations - Types of Roots Sample Question', 'KANVMqizc4Y')]
       
 
-quiz = [(1, 'Solve the quadratic equation x(2x-3) = 2x+1. Give your answer correct to three decimal places.', 'x = 2.686 OR x = -0.186', 'x = 3.576 OR x = 2.102', 'x = -1.335 OR x = 1.353', 'x = 1.282 OR x = -3.521', 'bzE--l_Lj0A', 1), 
-        (2, 'Find the range of values of <i>p</i> given that the quadratic equation x<sup>2</sup> = 5x+2-<i>p</i> has no roots.', 'p > 23/5', 'p < 33/4', 'p > 33/4', 'p < 23/5', 'bzE--l_Lj0A', 3)]
+quiz = [(1, 'Solve the quadratic equation x(2x-3) = 2x+1. Give your answer correct to three decimal places.', 'x = 2.686 OR x = -0.186', 'x = 3.576 OR x = 2.102', 'x = -1.335 OR x = 1.353', 'x = 1.282 OR x = -3.521', 'CdmLRkDRm0o', 1), 
+        (2, 'Find the range of values of <i>p</i> given that the quadratic equation x<sup>2</sup> = 5x+2-<i>p</i> has no roots.', 'p > 23/5', 'p < 33/4', 'p > 33/4', 'p < 23/5', 'ABrVHu7I2z8', 3)]
 
         #quiz format follows the following format (id, question, option1, option2, option3, option4, answer explanation, right answer)        
 
