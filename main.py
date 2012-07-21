@@ -64,23 +64,23 @@ class Signup(db.Model):
 
 ##### Playlist and Quiz List #####
 
-addmaths_f4 = [(1, 'Quadratic Equations', 'Jg0nvDjdqsI'),
-            (2, 'Introduction', 'bp6_gAesCTk'), 
-            (3, 'Determining Roots', '2pW7MF6kL74'), 
-            (4, 'Factorisation', 'Pl6eaqIcqdg'),
-            (5, 'Completing the Square', 'ooD8CvFPhig'),
-            (6, 'Quadratic Formula', 'SKDw3EtBabs'),
-            (7, 'Types of Roots', 'Sd15kSxzM0w'),
-            (8, 'Types of Roots Sample Question', 'KANVMqizc4Y')]
+addmaths_f4 = [(1, 'Quadratic Equations', 'Jg0nvDjdqsI',''),
+            (2, 'Introduction', 'bp6_gAesCTk',''), 
+            (3, 'Determining Roots', '2pW7MF6kL74',''), 
+            (4, 'Factorisation', 'Pl6eaqIcqdg',''),
+            (5, 'Completing the Square', 'ooD8CvFPhig',''),
+            (6, 'Quadratic Formula', 'SKDw3EtBabs',''),
+            (7, 'Types of Roots', 'Sd15kSxzM0w',''),
+            (8, 'Types of Roots Sample Question', 'KANVMqizc4Y','')]
 
-addmaths_public = [(1, 'Quadratic Function - Quadratic Inequality', 'TFxnznhE51Y'),
-            (2, 'Quadratic Function - Linear Inequality', 'u85dFT_5H-c'),
-            (3, 'Function - Type of Relation and Function Notation', '2WaCcWftvr8'),
-            (4, 'Function - Finding Domain, Codomain and Range from Arrow Diagram', 'KhoRxK9XEKs'),
-            (4, 'Function - Finding Object and Image for Ordered Pair', 'usNfqLgy7mM'),
-            (5, 'Logarithm', 'n8eIOs4ARGE'),
-            (6, 'Understanding Rates of Change', 'GKugLlsSsp8'),
-            (7, 'Understanding Rates of Change Part 2', 'gZC2JHM-WxE')]
+addmaths_public = [(1, 'Quadratic Function - Quadratic Inequality', 'TFxnznhE51Y','&start=6&end=399'),
+            (2, 'Quadratic Function - Linear Inequality', 'u85dFT_5H-c','&start=6&end=266'),
+            (3, 'Function - Type of Relation and Function Notation', '2WaCcWftvr8','&start=6&end=115'),
+            (4, 'Function - Finding Domain, Codomain and Range from Arrow Diagram', 'KhoRxK9XEKs','&start=6&end=104'),
+            (5, 'Function - Finding Object and Image for Ordered Pair', 'usNfqLgy7mM','&start=6&end=101'),
+            (6, 'Logarithm', 'n8eIOs4ARGE',''),
+            (7, 'Understanding Rates of Change', 'GKugLlsSsp8',''),
+            (8, 'Understanding Rates of Change Part 2', 'gZC2JHM-WxE','')]
 
        
      
@@ -109,6 +109,7 @@ class PlaylistHandler(PageHandler):
         info = url.split('/')
         subject = info[-3]
         year = info[-2]
+        id = int(id)-1
         
         if subject == 'addmaths':
             if year == 'f4':
@@ -116,11 +117,11 @@ class PlaylistHandler(PageHandler):
             elif year == 'public':
                 list_to_use = addmaths_public
 
-        while int(id)<len(list_to_use):            
-            self.render('playlist.html', quiz = quiz, playlist = list_to_use, id=int(id)-1, url = '/playlist/%s/%s/%s' %(subject,year,str(int(id)+1)), button = "Next Video", public=addmaths_public)
+        while int(id+1)<len(list_to_use):            
+            self.render('playlist.html', quiz = quiz, playlist = list_to_use, id=id, url = '/playlist/%s/%s/%s' %(subject,year,str(int(id)+2)), button = "Next Video", public=addmaths_public, delay=str(list_to_use[id][-1]))
             return
         
-        self.render('playlist.html', quiz = quiz, playlist = list_to_use, id=int(id)-1, url = '/quiz/1', button = 'Continue Learning')
+        self.render('playlist.html', quiz = quiz, playlist = list_to_use, id=id, url = '/quiz/1', button = 'Continue Learning', public=addmaths_public, delay=str(list_to_use[id][-1]))
                 
 
 ##### Quizzes Page #####
