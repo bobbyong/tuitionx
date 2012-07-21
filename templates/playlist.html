@@ -19,27 +19,62 @@
         </div>
         
         <div class="span4">
-          <h2>Video List</h2>
-          <br>
-            <p>
-           	  {% for p in playlist %}
-				        <a href = "/playlist/{{p[0]}}">{{ p[1] }}</a>
-				        <br>
-			        {% endfor %}
-			      </p>     
-          
-          <br>
-          <h2>Quiz List</h2>
-          <br>
-            <p>
-              {% for q in quiz %}
-                <a href = "/quiz/{{q[0]}}">{{ q[0] }}. {{ q[1] | safe}}</a>
-                <br>
-              {% endfor %}
-            </p>
 
+            <h2>Video Playlist</h2>
           <br>
-          <h2><a href = "/signup">Sign Up</a></h2>
+
+
+            <div class="accordion" id="accordion2" data-collapse-type="manual">
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              
+
+
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                Form 4 Add Maths - Quadratic Equations
+              </a>
+            </div>
+            <div id="collapseOne" class="accordion-body collapse in">
+              <div class="accordion-inner">
+                {% for p in playlist %}
+                <a href = "/playlist/addmaths/f4/{{p[0]}}">{{ p[1] }}</a>
+                <br>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                Topic #2
+              </a>
+            </div>
+            <div id="collapseTwo" class="accordion-body collapse">
+              <div class="accordion-inner">
+                Coming Soon
+              </div>
+            </div>
+          </div>
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+                Topic #3
+              </a>
+            </div>
+            <div id="collapseThree" class="accordion-body collapse">
+              <div class="accordion-inner">
+                Coming Soon
+              </div>
+            </div>
+          </div>
+        </div>​
+
+
+
+
+
+         
+
               
         </div>
 

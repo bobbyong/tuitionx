@@ -56,21 +56,26 @@ class User(db.Model):
     password = db.StringProperty(required = True)
     joined = db.DateTimeProperty(auto_now_add = True)
 
-    
+class Signup(db.Model):
+    email = db.StringProperty(required = True)
+    joined = db.DateTimeProperty(auto_now_add = True)    
 
 
 
 ##### Playlist and Quiz List #####
 
-playlist = [(1, 'Form 4 Add Maths Chapter 2 Introduction', 'Jg0nvDjdqsI'),
-            (2, 'Quadratic Equations - Introduction', 'bp6_gAesCTk'), 
-            (3, 'Quadratic Equations - Determining Roots', '2pW7MF6kL74'), 
-            (4, 'Quadratic Equations - Factorisation', 'Pl6eaqIcqdg'),
-            (5, 'Quadratic Equations - Completing the Square', 'ooD8CvFPhig'),
-            (6, 'Quadratic Equations - Quadratic Formula', 'SKDw3EtBabs'),
-            (7, 'Quadratic Equations - Types of Roots', 'Sd15kSxzM0w'),
-            (8, 'Quadratic Equations - Types of Roots Sample Question', 'KANVMqizc4Y')]
-      
+playlist = [(1, 'Quadratic Equations', 'Jg0nvDjdqsI'),
+            (2, 'Introduction', 'bp6_gAesCTk'), 
+            (3, 'Determining Roots', '2pW7MF6kL74'), 
+            (4, 'Factorisation', 'Pl6eaqIcqdg'),
+            (5, 'Completing the Square', 'ooD8CvFPhig'),
+            (6, 'Quadratic Formula', 'SKDw3EtBabs'),
+            (7, 'Types of Roots', 'Sd15kSxzM0w'),
+            (8, 'Types of Roots Sample Question', 'KANVMqizc4Y')]
+
+
+       
+     
 
 quiz = [(1, 'Solve the quadratic equation x(2x-3) = 2x+1. Give your answer correct to three decimal places.', 'x = 2.686 OR x = -0.186', 'x = 3.576 OR x = 2.102', 'x = -1.335 OR x = 1.353', 'x = 1.282 OR x = -3.521', 'CdmLRkDRm0o', 1), 
         (2, 'Find the range of values of <i>p</i> given that the quadratic equation x<sup>2</sup> = 5x+2-<i>p</i> has no roots.', 'p > 23/5', 'p < 33/4', 'p > 33/4', 'p < 23/5', 'ABrVHu7I2z8', 3)]
@@ -94,7 +99,7 @@ class PlaylistHandler(PageHandler):
     def get(self, id):
         
         while int(id)<len(playlist):            
-            self.render('playlist.html', quiz = quiz, playlist = playlist, id=int(id)-1, url = '/playlist/%s' %str(int(id)+1), button = "Next Video")
+            self.render('playlist.html', quiz = quiz, playlist = playlist, id=int(id)-1, url = '/playlist/addmaths/f4/%s' %str(int(id)+1), button = "Next Video")
             return
         
         self.render('playlist.html', quiz = quiz, playlist = playlist, id=int(id)-1, url = '/quiz/1', button = 'Continue Learning')
@@ -127,8 +132,8 @@ class QuizHandler(PageHandler):
 
         signup_button = """
                         <br><b><em>Congratulations on reaching this far in your learning. 
-                        <br>To continue, you will have to register. Otherwise all your great progress will be lost forever.</em></b><br><br>
-                        <a href = "/signup" class="btn btn-primary btn-large">Sign Up Now &raquo;</a>
+                        <br>We are working hard to build TuitionX. Kindly sign-up to our mailing list to keep updated.</em></b><br><br>
+                        <a href = "/home" class="btn btn-primary btn-large">Sign Up Now &raquo;</a>
                         """  
 
         next_button = '<div class="playlist-button"><a href="/quiz/%s" class="btn btn-primary btn-large">Next Question &raquo;</a></div>' % str(id+1)                                    
@@ -211,6 +216,38 @@ class SignUpHandler(PageHandler):
 
 
 
+##### Home Handler #####
+
+class HomeHandler(PageHandler):
+    def get(self):
+        self.render('home.html')
+
+    def post(self):
+        have_error = False
+        email = self.request.get('email')
+        
+        params = dict(email = email)
+
+        que = db.Query(Signup).filter("email =", email).fetch(limit=1)
+
+        if que:
+            params['error_email_register'] = "That email address is already registered."
+            have_error = True
+        
+        if not valid_email(email):
+            params['error_email'] = "That is not a valid email address."
+            have_error = True
+
+        if have_error:
+            self.render('home.html', **params)
+
+        else:      
+            u = Signup(email=email)
+            u.put()     
+            
+            self.render('welcome.html') 
+    
+
 
 ##### About Handler #####
 
@@ -224,7 +261,9 @@ class AboutHandler(PageHandler):
 ##### URL Mapping #####
 
 app = webapp2.WSGIApplication([('/', MainHandler),
-                               ('/playlist/([0-9]+)', PlaylistHandler),
+                               ('/home', HomeHandler),
+                               ('/about', AboutHandler),
+                               ('/playlist/addmaths/f4/([0-9]+)', PlaylistHandler),
                                ('/quiz/([0-9]+)', QuizHandler),
                                ('/signup', SignUpHandler)],
                               debug=True)

@@ -5047,3 +5047,8 @@ a.badge:hover {
 .signup-error {
   color: #EE0000;
 }
+
+.text-block {
+  text-align: justify;
+}
+
