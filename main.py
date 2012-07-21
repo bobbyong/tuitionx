@@ -64,7 +64,7 @@ class Signup(db.Model):
 
 ##### Playlist and Quiz List #####
 
-playlist = [(1, 'Quadratic Equations', 'Jg0nvDjdqsI'),
+addmaths_f4 = [(1, 'Quadratic Equations', 'Jg0nvDjdqsI'),
             (2, 'Introduction', 'bp6_gAesCTk'), 
             (3, 'Determining Roots', '2pW7MF6kL74'), 
             (4, 'Factorisation', 'Pl6eaqIcqdg'),
@@ -73,6 +73,14 @@ playlist = [(1, 'Quadratic Equations', 'Jg0nvDjdqsI'),
             (7, 'Types of Roots', 'Sd15kSxzM0w'),
             (8, 'Types of Roots Sample Question', 'KANVMqizc4Y')]
 
+addmaths_public = [(1, 'Quadratic Function - Quadratic Inequality', 'TFxnznhE51Y'),
+            (2, 'Quadratic Function - Linear Inequality', 'u85dFT_5H-c'),
+            (3, 'Function - Type of Relation and Function Notation', '2WaCcWftvr8'),
+            (4, 'Function - Finding Domain, Codomain and Range from Arrow Diagram', 'KhoRxK9XEKs'),
+            (4, 'Function - Finding Object and Image for Ordered Pair', 'usNfqLgy7mM'),
+            (5, 'Logarithm', 'n8eIOs4ARGE'),
+            (6, 'Understanding Rates of Change', 'GKugLlsSsp8'),
+            (7, 'Understanding Rates of Change Part 2', 'gZC2JHM-WxE')]
 
        
      
@@ -97,12 +105,22 @@ class MainHandler(PageHandler):
 
 class PlaylistHandler(PageHandler):
     def get(self, id):
+        url = self.request.url
+        info = url.split('/')
+        subject = info[-3]
+        year = info[-2]
         
-        while int(id)<len(playlist):            
-            self.render('playlist.html', quiz = quiz, playlist = playlist, id=int(id)-1, url = '/playlist/addmaths/f4/%s' %str(int(id)+1), button = "Next Video")
+        if subject == 'addmaths':
+            if year == 'f4':
+                list_to_use = addmaths_f4
+            elif year == 'public':
+                list_to_use = addmaths_public
+
+        while int(id)<len(list_to_use):            
+            self.render('playlist.html', quiz = quiz, playlist = list_to_use, id=int(id)-1, url = '/playlist/%s/%s/%s' %(subject,year,str(int(id)+1)), button = "Next Video", public=addmaths_public)
             return
         
-        self.render('playlist.html', quiz = quiz, playlist = playlist, id=int(id)-1, url = '/quiz/1', button = 'Continue Learning')
+        self.render('playlist.html', quiz = quiz, playlist = list_to_use, id=int(id)-1, url = '/quiz/1', button = 'Continue Learning')
                 
 
 ##### Quizzes Page #####
@@ -110,7 +128,7 @@ class PlaylistHandler(PageHandler):
 class QuizHandler(PageHandler):
     def get(self, id):
         tuple_id = int(id)-1
-        self.render('quiz.html', quiz = quiz, id=tuple_id, playlist=playlist)       
+        self.render('quiz.html', quiz = quiz, id=tuple_id, playlist=addmaths_f4)       
 
 
     def post(self, id):
@@ -145,14 +163,14 @@ class QuizHandler(PageHandler):
 
         if int(answer) == quiz[tuple_id][-1]:                       #checks submitted answer with correct answer in tuple list
             if id+1 <= len(quiz):                                   #checks to see if this is the last question
-                self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = right_answer, explanation = explanation, nextquestion = next_button, playlist = playlist)
+                self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = right_answer, explanation = explanation, nextquestion = next_button, playlist = addmaths_f4)
             else:
-                self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = right_answer, explanation = explanation, nextquestion = signup_button, playlist = playlist)
+                self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = right_answer, explanation = explanation, nextquestion = signup_button, playlist = addmaths_f4)
         else:                                                       #if wrong answer
             if id+1 <= len(quiz):                                   #if wrong answer and last question                
-                self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = wrong_answer, explanation = explanation, nextquestion = next_button, playlist = playlist)
+                self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = wrong_answer, explanation = explanation, nextquestion = next_button, playlist = addmaths_f4)
             else:
-                self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = wrong_answer, explanation = explanation, nextquestion = signup_button, playlist = playlist)
+                self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = wrong_answer, explanation = explanation, nextquestion = signup_button, playlist = addmaths_f4)
 
 
 
@@ -264,6 +282,7 @@ app = webapp2.WSGIApplication([('/', MainHandler),
                                ('/home', HomeHandler),
                                ('/about', AboutHandler),
                                ('/playlist/addmaths/f4/([0-9]+)', PlaylistHandler),
+                               ('/playlist/addmaths/public/([0-9]+)', PlaylistHandler),
                                ('/quiz/([0-9]+)', QuizHandler),
                                ('/signup', SignUpHandler)],
                               debug=True)

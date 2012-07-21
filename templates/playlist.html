@@ -1,3 +1,4 @@
+
 {% extends "base.html" %}
 
 {% block content %}
@@ -24,52 +25,46 @@
           <br>
 
 
-            <div class="accordion" id="accordion2" data-collapse-type="manual">
-          <div class="accordion-group">
-            <div class="accordion-heading">
+
+                    <div id="accordion2" class="accordion">
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a href="#collapseOne" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle">
+                    Form 4 Add Maths - Quadratic Equations
+                  </a>
+                </div>
+                <div class="accordion-body collapse" id="collapseOne" style="height: 0px;">
+                  <div class="accordion-inner">
+                    
+                    {% for p in playlist %}
+                    <a href = "/playlist/addmaths/f4/{{p[0]}}">{{ p[1] }}</a>
+                    <br>
+                    {% endfor %}
+                  
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a href="#collapseTwo" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle">
+                    Form 4 Add Maths - Public Videos
+                  </a>
+                </div>
+                <div class="accordion-body collapse" id="collapseTwo">
+                  <div class="accordion-inner">
+                    
+
+                    {% for p in public %}
+                    <a href = "/playlist/addmaths/public/{{p[0]}}">{{ p[1] }}</a>
+                    <br>
+                    {% endfor %}
+                   
+                   </div>
+                </div>
+              </div>
               
-
-
-              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-                Form 4 Add Maths - Quadratic Equations
-              </a>
-            </div>
-            <div id="collapseOne" class="accordion-body collapse in">
-              <div class="accordion-inner">
-                {% for p in playlist %}
-                <a href = "/playlist/addmaths/f4/{{p[0]}}">{{ p[1] }}</a>
-                <br>
-                {% endfor %}
-              </div>
-            </div>
           </div>
-          <div class="accordion-group">
-            <div class="accordion-heading">
-              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-                Topic #2
-              </a>
-            </div>
-            <div id="collapseTwo" class="accordion-body collapse">
-              <div class="accordion-inner">
-                Coming Soon
-              </div>
-            </div>
-          </div>
-          <div class="accordion-group">
-            <div class="accordion-heading">
-              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
-                Topic #3
-              </a>
-            </div>
-            <div id="collapseThree" class="accordion-body collapse">
-              <div class="accordion-inner">
-                Coming Soon
-              </div>
-            </div>
-          </div>
-        </div>​
-
-
+​
 
 
 
