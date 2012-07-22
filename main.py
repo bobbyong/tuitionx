@@ -57,7 +57,7 @@ class User(db.Model):
     joined = db.DateTimeProperty(auto_now_add = True)
 
 class Signup(db.Model):
-    email = db.StringProperty(required = True)
+    email = db.StringProperty()     #temporary removed required = True
     joined = db.DateTimeProperty(auto_now_add = True)    
 
 class Submit(db.Model):
@@ -279,7 +279,7 @@ class HomeHandler(PageHandler):
     def post(self):
         have_error = False
         email = self.request.get('email')
-        
+
         params = dict(email = email)
 
         que = db.Query(Signup).filter("email =", email).fetch(limit=1)
@@ -315,7 +315,7 @@ class SubmitHandler(PageHandler):
         email = self.request.get('email')
         content = self.request.get('content')
 
-        if name and valid_email(email) and content:
+        if name and email != '' and valid_email(email) and content:
             p = Submit(name = name, email = email, content = content)
             p.put()
             self.render('home.html', message="Thank you for submitting your useful links. <br><br>") 
