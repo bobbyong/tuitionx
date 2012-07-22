@@ -312,7 +312,6 @@ app = webapp2.WSGIApplication([('/', MainHandler),
                                ('/home', HomeHandler),
                                ('/about', AboutHandler),
                                ('/playlist', PlaylistHandler),
-                               ('/playlist/addmaths/public/([0-9]+)', PlaylistHandler),
                                ('/quiz/([0-9]+)', QuizHandler),
                                ('/signup', SignUpHandler)],
                               debug=True)
