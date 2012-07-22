@@ -5065,3 +5065,13 @@ a.badge:hover {
   margin-right: 5px;
 }
 
+.tutor-profile {
+  background-color: Khaki;
+  margin-top: -10px;
+  padding: 12px;
+}
+
+textarea {
+  height: 200px;
+  width: 350px;
+}

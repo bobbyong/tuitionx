@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	
+	<div class="row">
+        
+        <div class="span8">
+        	<div class="text-block">
+	          <h2>Submit Useful Links</h2>
+	          <br>
+		      Do you have any interesting study resource that will you find useful for SPM students? Submit them here!
+		      <br><br>
+
+
+		      <form method="post">
+		      <label>
+		        <div>Name:</div>
+		        <input type="text" name="name" value="{{name}}">
+		      </label>
+
+		      <label>
+		        <div>Email:</div>
+		        <input type="text" name="email" value="{{email}}">
+		      </label>
+
+		      <label>
+		        <div>Submit Your Links:</div>
+		        <textarea name="content">{{content}}</textarea>
+		      </label>
+
+		      <div class="signup-error">{{error}}</div><br>
+
+	    	  <input type="submit">
+	    	  </form>
+			
+      		</div>
+        </div>
+        
+        
+        
+        
+        
+  	</div>
+
+{% endblock %}

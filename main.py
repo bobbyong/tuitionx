@@ -60,6 +60,12 @@ class Signup(db.Model):
     email = db.StringProperty(required = True)
     joined = db.DateTimeProperty(auto_now_add = True)    
 
+class Submit(db.Model):
+    name = db.StringProperty(required = True)
+    email = db.StringProperty(required = True)
+    content = db.TextProperty(required = True)
+    joined = db.DateTimeProperty(auto_now_add = True)    
+
 
 
 ##### Playlist and Quiz List #####
@@ -297,14 +303,38 @@ class HomeHandler(PageHandler):
     
 
 
+
+##### Submit Handler #####
+
+class SubmitHandler(PageHandler):
+    def get(self):
+        self.render('submit.html')
+
+    def post(self):
+        name = self.request.get('name')
+        email = self.request.get('email')
+        content = self.request.get('content')
+
+        if name and valid_email(email) and content:
+            p = Submit(name = name, email = email, content = content)
+            p.put()
+            self.render('home.html', message="Thank you for submitting your useful links. <br><br>") 
+        
+        else:
+            error = "Name, valid email and content, please!"
+            self.render("submit.html", name=name, email=email, content=content, error=error)    
+    
+
+
+
+
 ##### About Handler #####
 
 class AboutHandler(PageHandler):
     def get(self):
         self.render('about.html')
 
-
-
+    
 
 ##### URL Mapping #####
 
@@ -313,6 +343,7 @@ app = webapp2.WSGIApplication([('/', MainHandler),
                                ('/about', AboutHandler),
                                ('/playlist', PlaylistHandler),
                                ('/quiz/([0-9]+)', QuizHandler),
+                               ('/submit', SubmitHandler),
                                ('/signup', SignUpHandler)],
                               debug=True)
 
