@@ -100,6 +100,32 @@ class MainHandler(PageHandler):
     def get(self):
         self.render('main.html')
 
+    def post(self):
+        have_error = False
+        email = self.request.get('email')
+        
+        params = dict(email = email)
+
+        que = db.Query(Signup).filter("email =", email).fetch(limit=1)
+
+        if que:
+            params['error_email_register'] = "That email address is already registered."
+            have_error = True
+        
+        if not valid_email(email):
+            params['error_email'] = "That is not a valid email address."
+            have_error = True
+
+        if have_error:
+            self.render('home.html', **params)
+
+        else:      
+            u = Signup(email=email)
+            u.put()     
+            
+            self.render('home.html', message="Thank you for signing up with TuitionX. You may now begin your learning journey.<br><br>") 
+        
+
 
 ##### Video Playlist Page #####
 

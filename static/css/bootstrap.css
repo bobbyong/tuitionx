@@ -5052,3 +5052,16 @@ a.badge:hover {
   text-align: justify;
 }
 
+.register-btn {
+  margin-top: -9px;
+  margin-left: 5px;
+}
+
+.email-home {
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 27px;
+  color: inherit;
+  margin-right: 5px;
+}
+
