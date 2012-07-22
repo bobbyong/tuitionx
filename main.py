@@ -64,26 +64,27 @@ class Signup(db.Model):
 
 ##### Playlist and Quiz List #####
 
-addmaths_f4 = [(1, 'Quadratic Equations', 'Jg0nvDjdqsI',''),
-            (2, 'Introduction', 'bp6_gAesCTk',''), 
-            (3, 'Determining Roots', '2pW7MF6kL74',''), 
-            (4, 'Factorisation', 'Pl6eaqIcqdg',''),
-            (5, 'Completing the Square', 'ooD8CvFPhig',''),
-            (6, 'Quadratic Formula', 'SKDw3EtBabs',''),
-            (7, 'Types of Roots', 'Sd15kSxzM0w',''),
-            (8, 'Types of Roots Sample Question', 'KANVMqizc4Y','')]
-
-addmaths_public = [(1, 'Quadratic Function - Quadratic Inequality', 'TFxnznhE51Y','&start=6&end=399'),
-            (2, 'Quadratic Function - Linear Inequality', 'u85dFT_5H-c','&start=6&end=266'),
-            (3, 'Function - Type of Relation and Function Notation', '2WaCcWftvr8','&start=6&end=115'),
-            (4, 'Function - Finding Domain, Codomain and Range from Arrow Diagram', 'KhoRxK9XEKs','&start=6&end=104'),
-            (5, 'Function - Finding Object and Image for Ordered Pair', 'usNfqLgy7mM','&start=6&end=100'),
-            (6, 'Logarithm', 'n8eIOs4ARGE',''),
-            (7, 'Understanding Rates of Change', 'GKugLlsSsp8',''),
-            (8, 'Understanding Rates of Change Part 2', 'gZC2JHM-WxE','')]
-
-       
+addmaths_f4= { 'ch2': [(1, 'Quadratic Equations', 'Jg0nvDjdqsI',''),
+                        (2, '2.1 Quadratic Equations and its Roots', 'bp6_gAesCTk',''), 
+                        (3, '2.2 Quadratic Equations - Part 1', '2pW7MF6kL74',''), 
+                        (4, '2.2 Quadratic Equations - Part 2', 'Pl6eaqIcqdg',''),
+                        (5, '2.2 Quadratic Equations - Part 3', 'ooD8CvFPhig',''),
+                        (6, '2.2 Quadratic Equations - Part 4', 'SKDw3EtBabs',''),
+                        (7, '2.3 Types of Roots of Quadratic Equations - Part 1', 'Sd15kSxzM0w',''),
+                        (8, '2.3 Types of Roots of Quadratic Equations - Part 2', 'KANVMqizc4Y','')],
+                'public': [(1, 'Quadratic Function - Quadratic Inequality', 'TFxnznhE51Y','&start=6&end=399'),
+                        (2, 'Quadratic Function - Linear Inequality', 'u85dFT_5H-c','&start=6&end=266'),
+                        (3, 'Function - Type of Relation and Function Notation', '2WaCcWftvr8','&start=6&end=115'),
+                        (4, 'Function - Finding Domain, Codomain and Range from Arrow Diagram', 'KhoRxK9XEKs','&start=6&end=104'),
+                        (5, 'Function - Finding Object and Image for Ordered Pair', 'usNfqLgy7mM','&start=6&end=100'),
+                        (6, 'Logarithm', 'n8eIOs4ARGE',''),
+                        (7, 'Understanding Rates of Change', 'GKugLlsSsp8',''),
+                        (8, 'Understanding Rates of Change Part 2', 'gZC2JHM-WxE','')],  
+                'ch1': [] }
      
+
+### PLAYLIST FORMAT --> DICTIONARY {chapter: [playlist]}
+### [playlist] format --> [id, title, youtube link, time_delay]    
 
 quiz = [(1, 'Solve the quadratic equation x(2x-3) = 2x+1. Give your answer correct to three decimal places.', 'x = 2.686 OR x = -0.186', 'x = 3.576 OR x = 2.102', 'x = -1.335 OR x = 1.353', 'x = 1.282 OR x = -3.521', 'CdmLRkDRm0o', 1), 
         (2, 'Find the range of values of <i>p</i> given that the quadratic equation x<sup>2</sup> = 5x+2-<i>p</i> has no roots.', 'p > 23/5', 'p < 33/4', 'p > 33/4', 'p < 23/5', 'ABrVHu7I2z8', 3)]
@@ -130,24 +131,26 @@ class MainHandler(PageHandler):
 ##### Video Playlist Page #####
 
 class PlaylistHandler(PageHandler):
-    def get(self, id):
-        url = self.request.url
-        info = url.split('/')
-        subject = info[-3]
-        year = info[-2]
-        id = int(id)-1
+    def get(self):
         
-        if subject == 'addmaths':
-            if year == 'f4':
-                list_to_use = addmaths_f4
-            elif year == 'public':
-                list_to_use = addmaths_public
+        subject = self.request.get("subject")
+        year = self.request.get("year")
+        chapter = self.request.get("chapter")
+        lesson = self.request.get("lesson")
+        lesson_id = int(lesson)-1
+        
+        list_to_use = addmaths_f4[chapter]
 
-        while int(id+1)<len(list_to_use):            
-            self.render('playlist.html', quiz = quiz, playlist = list_to_use, id=id, url = '/playlist/%s/%s/%s' %(subject,year,str(int(id)+2)), button = "Next Video", public=addmaths_public, delay=str(list_to_use[id][-1]))
+        while int(lesson_id+1)<len(list_to_use):
+            self.render('playlist.html', playlist = list_to_use, lesson=lesson_id, \
+                url = '/playlist?subject=%s&year=%s&chapter=%s&lesson=%s' %(subject,year,chapter,str(lesson_id + 2)), \
+                button = "Next Video", time_delay=str(list_to_use[lesson_id][-1]), temp = addmaths_f4["public"])
             return
+
+        self.render('playlist.html', playlist = list_to_use, lesson=lesson_id, url = '/quiz/1', \
+            button = 'Continue Learning', time_delay=str(list_to_use[lesson_id][-1]), temp = addmaths_f4["public"])
+
         
-        self.render('playlist.html', quiz = quiz, playlist = list_to_use, id=id, url = '/quiz/1', button = 'Continue Learning', public=addmaths_public, delay=str(list_to_use[id][-1]))
                 
 
 ##### Quizzes Page #####
@@ -308,7 +311,7 @@ class AboutHandler(PageHandler):
 app = webapp2.WSGIApplication([('/', MainHandler),
                                ('/home', HomeHandler),
                                ('/about', AboutHandler),
-                               ('/playlist/addmaths/f4/([0-9]+)', PlaylistHandler),
+                               ('/playlist', PlaylistHandler),
                                ('/playlist/addmaths/public/([0-9]+)', PlaylistHandler),
                                ('/quiz/([0-9]+)', QuizHandler),
                                ('/signup', SignUpHandler)],

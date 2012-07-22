@@ -7,11 +7,11 @@
 	<div class="row">
         
         <div class="span8">
-          <h2>{{playlist[id][1]}}</h2>
+          <h2>{{playlist[lesson][1]}}</h2>
            <br>
            <p>
             <div class="videoWrapperPlaylist">
-              <iframe src="http://www.youtube.com/embed/{{playlist[id][2]}}?rel=0&amp;wmode=transparent&amp;autoplay=1{{delay}}" frameborder="0" allowfullscreen></iframe></p>
+              <iframe src="http://www.youtube.com/embed/{{playlist[lesson][2]}}?rel=0&amp;wmode=transparent&amp;autoplay=1{{time_delay}}" frameborder="0" allowfullscreen></iframe></p>
             </div>
             <div class = "playlist-button">
               <a href = "{{ url }}" class="btn btn-primary btn-large">{{ button }} &raquo;</a>
@@ -28,42 +28,7 @@
 
           <div id="accordion2" class="accordion">
             
-            <div class="accordion-group">
-              <div class="accordion-heading">
-                <a href="#collapseOne" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle">
-                  Form 4 Add Maths - Quadratic Equations
-                </a>
-              </div>
-              <div class="accordion-body collapse" id="collapseOne" style="height: 0px;">
-                <div class="accordion-inner">
-                  {% for p in playlist %}
-                  <a href = "/playlist/addmaths/f4/{{p[0]}}">{{ p[1] }}</a>
-                  <br>
-                  {% endfor %}
-                </div>
-              </div>
-            </div>
-
             
-
-            <div class="accordion-group">
-              <div class="accordion-heading">
-                <a href="#collapseTwo" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle">
-                  Form 4 Add Maths - Public Videos
-                </a>
-              </div>
-              <div class="accordion-body collapse" id="collapseTwo">
-                <div class="accordion-inner">
-                  {% for p in public %}
-                  <a href = "/playlist/addmaths/public/{{p[0]}}">{{ p[1] }}</a>
-                  <br>
-                  {% endfor %}
-                </div>
-              </div>
-            </div>
-
-
-
             <div class="accordion-group">
               <div class="accordion-heading">
                 <a href="#collapseThree" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle">
@@ -83,21 +48,59 @@
 
             <div class="accordion-group">
               <div class="accordion-heading">
-                <a href="#collapseFour" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle">
+                <a href="#collapseOne" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle">
                   Chapter 2: Quadratic Equations
                 </a>
               </div>
-              <div class="accordion-body collapse" id="collapseFour">
+              <div class="accordion-body collapse" id="collapseOne" style="height: 0px;">
                 <div class="accordion-inner">
-                  2.1 Quadratic Equations and its Roots<br>
-                  2.2 Quadratic Equations<br>
-                  2.3 Types of Roots of Quadratic Equations<br>
+                  {% for p in playlist %}
+                  <a href = "/playlist?subject=addmaths&year=f4&chapter=ch2&lesson={{p[0]}}">{{ p[1] }}</a>
+                  <br>
+                  {% endfor %}
                 </div>
               </div>
             </div>
 
+            
+            <!-- COMMENTED OUT PUBLIC YOUTUBE VIDEOS 
+
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a href="#collapseTwo" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle">
+                  Form 4 Add Maths Public Youtube Videos
+                </a>
+              </div>
+              <div class="accordion-body collapse" id="collapseTwo">
+                <div class="accordion-inner">
+                  {% for p in temp %}
+                  <a href = "/playlist?subject=addmaths&year=f4&chapter=public&lesson={{p[0]}}">{{ p[1] }}</a>
+                  <br>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+            
+            -->
 
 
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a href="#collapseFour" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle">
+                  Chapter 3: Quadratic Functions
+                </a>
+              </div>
+              <div class="accordion-body collapse" id="collapseFour">
+                <div class="accordion-inner">
+                  3.1 Quadratic Functions and their Graphs<br>
+                  3.2 Maximum and Minimum Values of Quadratic Functions<br>
+                  3.3 Sketch Graphs of Quadratic Functions<br>
+                  3.4 Quadratic Inequalities<br>
+                </div>
+              </div>
+            </div>
+
+          
             <div class="accordion-group">
               <div class="accordion-heading">
                 <a href="#collapseFive" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle">
