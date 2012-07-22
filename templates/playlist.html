@@ -21,61 +21,222 @@
         
         <div class="span4">
 
-            <h2>Video Playlist</h2>
+          <h2>SPM Add Maths - Form 4</h2>
           <br>
 
 
 
-                    <div id="accordion2" class="accordion">
-              <div class="accordion-group">
-                <div class="accordion-heading">
-                  <a href="#collapseOne" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle">
-                    Form 4 Add Maths - Quadratic Equations
-                  </a>
-                </div>
-                <div class="accordion-body collapse" id="collapseOne" style="height: 0px;">
-                  <div class="accordion-inner">
-                    
-                    {% for p in playlist %}
-                    <a href = "/playlist/addmaths/f4/{{p[0]}}">{{ p[1] }}</a>
-                    <br>
-                    {% endfor %}
-                  
-                  </div>
+          <div id="accordion2" class="accordion">
+            
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a href="#collapseOne" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle">
+                  Form 4 Add Maths - Quadratic Equations
+                </a>
+              </div>
+              <div class="accordion-body collapse" id="collapseOne" style="height: 0px;">
+                <div class="accordion-inner">
+                  {% for p in playlist %}
+                  <a href = "/playlist/addmaths/f4/{{p[0]}}">{{ p[1] }}</a>
+                  <br>
+                  {% endfor %}
                 </div>
               </div>
-              <div class="accordion-group">
-                <div class="accordion-heading">
-                  <a href="#collapseTwo" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle">
-                    Form 4 Add Maths - Public Videos
-                  </a>
-                </div>
-                <div class="accordion-body collapse" id="collapseTwo">
-                  <div class="accordion-inner">
-                    
+            </div>
 
-                    {% for p in public %}
-                    <a href = "/playlist/addmaths/public/{{p[0]}}">{{ p[1] }}</a>
-                    <br>
-                    {% endfor %}
-                   
-                   </div>
+            
+
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a href="#collapseTwo" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle">
+                  Form 4 Add Maths - Public Videos
+                </a>
+              </div>
+              <div class="accordion-body collapse" id="collapseTwo">
+                <div class="accordion-inner">
+                  {% for p in public %}
+                  <a href = "/playlist/addmaths/public/{{p[0]}}">{{ p[1] }}</a>
+                  <br>
+                  {% endfor %}
                 </div>
               </div>
+            </div>
+
+
+
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a href="#collapseThree" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle">
+                  Chapter 1: Functions
+                </a>
+              </div>
+              <div class="accordion-body collapse" id="collapseThree">
+                <div class="accordion-inner">
+                  1.1 Concept of Relations<br>
+                  1.2 Concept of Functions<br>
+                  1.3 Composite Functions<br>
+                  1.4 Inverse Functions<br>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a href="#collapseFour" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle">
+                  Chapter 2: Quadratic Equations
+                </a>
+              </div>
+              <div class="accordion-body collapse" id="collapseFour">
+                <div class="accordion-inner">
+                  2.1 Quadratic Equations and its Roots<br>
+                  2.2 Quadratic Equations<br>
+                  2.3 Types of Roots of Quadratic Equations<br>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a href="#collapseFive" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle">
+                  Chapter 4: Simultaneous Equations
+                </a>
+              </div>
+              <div class="accordion-body collapse" id="collapseFive">
+                <div class="accordion-inner">
+                  4.1 Simultaneous Equation in Two Unknowns<br>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a href="#collapseSix" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle">
+                  Chapter 5: Indices and Logarithms
+                </a>
+              </div>
+              <div class="accordion-body collapse" id="collapseSix">
+                <div class="accordion-inner">       
+                  5.1 Indices and Laws of Indices<br>
+                  5.2 Logarithms and Laws of Logarithms<br>
+                  5.3 Change of Base of Logarithsm<br>
+                  5.4 Solve Equations Involving Indices and Logarithms<br>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a href="#collapseSeven" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle">
+                  Chapter 6: Coordinate Geometry
+                </a>
+              </div>
+              <div class="accordion-body collapse" id="collapseSeven">
+                <div class="accordion-inner">       
+                  6.1 Distance between Two Points<br>
+                  6.2 Division of a Line Segment<br>
+                  6.3 Areas of Polygons<br>
+                  6.4 Equation of a Straight Line<br>
+                  6.5 Parallel Lines and Perpendicular Lines<br>
+                  6.6 Equation of Locus Involving Distance between Two Points<br>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a href="#collapseEight" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle">
+                  Chapter 7: Statistics
+                </a>
+              </div>
+              <div class="accordion-body collapse" id="collapseEight">
+                <div class="accordion-inner">       
+                  7.1 Measure of Central Tendency<br>
+                  7.2 Measures of Dispersion<br>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a href="#collapseNine" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle">
+                  Chapter 8: Circular Measure
+                </a>
+              </div>
+              <div class="accordion-body collapse" id="collapseNine">
+                <div class="accordion-inner">       
+                  8.1 Concept of Radians<br>
+                  8.2 Length of Arc of a Circle<br>
+                  8.3 Area of Sector of a Circle<br>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a href="#collapseTen" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle">
+                  Chapter 9: Differentiation
+                </a>
+              </div>
+              <div class="accordion-body collapse" id="collapseTen">
+                <div class="accordion-inner">       
+                  9.1 Concept of Differentiation<br>
+                  9.2 First Derivative of Polynomial Functions<br>
+                  9.3 Maximum and Minimum Values<br>
+                  9.4 Rates of Change<br>
+                  9.5 Small Changes and Approximations<br>
+                  9.6 Second Derivatives<br>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a href="#collapseEleven" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle">
+                  Chapter 10: Solution of Triangles
+                </a>
+              </div>
+              <div class="accordion-body collapse" id="collapseEleven">
+                <div class="accordion-inner"> 
+                  10.1 Sine Rule<br>
+                  10.2 Cosine Rule<br>
+                  10.3 Formula for Area of a Triangle<br>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a href="#collapseTwelve" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle">
+                  Chapter 11: Index Number
+                </a>
+              </div>
+              <div class="accordion-body collapse" id="collapseTwelve">
+                <div class="accordion-inner">
+                  11.1 Index Number<br>
+                  11.2 Composite Index Number<br>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
               
           </div>
-​
-
-
-
-         
-
-              
         </div>
-
-        
-        
-        
+       
   </div>
 
 {% endblock %}
