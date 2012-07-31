@@ -5075,3 +5075,29 @@ textarea {
   height: 200px;
   width: 350px;
 }
+
+.learn-box {
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 40px;
+  background-color: BlanchedAlmond;
+  padding: 50px;
+  padding-top: 10px;
+  margin-top: 20px;
+  
+}
+
+.quiz-box {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  background-color: OrangeRed;
+  color: WhiteSmoke;
+  padding: 50px;
+  margin-top: 20px;
+  
+}
+
+.justify {
+  text-align: justify;
+}

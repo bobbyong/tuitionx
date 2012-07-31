@@ -92,13 +92,27 @@ addmaths_f4= { 'ch2': [(1, 'Quadratic Equations', 'Jg0nvDjdqsI',''),
 ### PLAYLIST FORMAT --> DICTIONARY {chapter: [playlist]}
 ### [playlist] format --> [id, title, youtube link, time_delay]    
 
-quiz = [(1, 'Solve the quadratic equation x(2x-3) = 2x+1. Give your answer correct to three decimal places.', 'x = 2.686 OR x = -0.186', 'x = 3.576 OR x = 2.102', 'x = -1.335 OR x = 1.353', 'x = 1.282 OR x = -3.521', 'CdmLRkDRm0o', 1), 
-        (2, 'Find the range of values of <i>p</i> given that the quadratic equation x<sup>2</sup> = 5x+2-<i>p</i> has no roots.', 'p > 23/5', 'p < 33/4', 'p > 33/4', 'p < 23/5', 'ABrVHu7I2z8', 3)]
+quiz = [('Which of the following are hydrocarbons?', 'Alkanes and Alkenes','Alkanes and Carboxylic Acids', \
+         'Alkenes and Alcohols','Alcohols and Carboxylic Acids', 'Alkenes and Carboxylic Acids', 'Alkanes and Alcohols', \
+         'Alkanes and Alkenes are hydrocarbons because they consist of H and C atoms only. Hydrocarbons are compounds that \
+         consist of H (Hydrogen) and C (Carbon) atoms only. Alcohols have the functional group -OH. It has an O (Oxygen) \
+         therefore it is not a hydrocarbon. Carboxylic acids have the functional group -COOH. Esters have the functional \
+         group -COO<sup>-</sup>', 1), 
+        
+        ('Which of the following are alkanes?', 'CH<sub>4</sub> and C<sub>4</sub>H<sub>8</sub>', \
+         'C<sub>3</sub>H<sub>2</sub> and CH<sub>3</sub>COOH', 'C<sub>3</sub>H<sub>8</sub> and C<sub>3</sub>H<sub>2</sub>', \
+         'C<sub>2</sub>H<sub>4</sub> and C<sub>2</sub>H<sub>5</sub>OH', 'C<sub>3</sub>H<sub>9</sub> and C<sub>4</sub>H<sub>10</sub>',\
+         'C<sub>2</sub>H<sub>6</sub> and C<sub>4</sub>H<sub>10</sub>', 'Remember that the general formula of alkanes is \
+         C<sub>n</sub>H<sub>2n+2</sub> <br>C<sub>2</sub>H<sub>6</sub>: Number of Carbon atoms = 2: \
+         n=2 C<sub>(2)</sub>H<sub>2(2)+2</sub> = C<sub>2</sub>H<sub>6</sub><br> C<sub>4</sub>H<sub>10</sub>: \
+         Number of Carbon atoms = 4: n=4 C<sub>(4)</sub>H<sub>2(4)+2</sub> = C<sub>4</sub>H<sub>10</sub>' ,6),
 
-        #quiz format follows the following format (id, question, option1, option2, option3, option4, answer explanation, right answer)        
+        ('How many Carbon atoms does Propane have?','1','2','3','4','5','6','<br>Propane <img src="http://upload.wikimedia.org/wikipedia/commons/a/a2/Propane-2D-flat.png" \
+            height = 150px><br><br>Remember: <br>Meth- has 1 Carbon atom, <br>Eth- has 2 Carbon atoms, <br>Prop- has 3 Carbon atoms, <br>But- has 4 Carbon atoms',3),
 
-
-
+        ('What is the name of this alkane? <br><img src="http://upload.wikimedia.org/wikipedia/commons/b/b9/Butane-2D-flat.png" height="150px">',\
+            'Methane','Ethane','Propane','Butane', 'Pentane','Hexane','This is a Butane. The alkane shown has 4 Carbon atoms with single C-C bonds as the only functional group. \
+             With 4 Carbon atoms on the parent chain and no side chains, the naming convention states that this alkane is named Butane.',4)]
 
 
 ##### Main Page #####
@@ -208,6 +222,78 @@ class QuizHandler(PageHandler):
             else:
                 self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = wrong_answer, explanation = explanation, nextquestion = signup_button, playlist = addmaths_f4)
 
+
+
+
+
+##### Learn Page #####
+
+learn = ['Hydrocarbons are compounds that consist of H (Hydrogen) and C (Carbon) atoms only. <br><br> Hydrocarbons = Hydrogen + Carbon <br> That is why hydrocarbon compounds do not have any other elements apart from Hydrogen and Carbon, geddit?',
+         
+         'Alkanes and Alkenes are hydrocarbons because they consist of H and C atoms only. <br><br> Ethane <img src="http://upload.wikimedia.org/wikipedia/commons/9/99/Ethane-flat.png" height=150px> &nbsp;&nbsp;&nbsp; Ethene <img src="http://images.suite101.com/1954206_com_ethylene2.png" height=150px> <br><br> Look, there is no Oxygen or any other weird atoms there!',
+         0,
+         
+         'Alkanes have the general formula C<sub>n</sub>H<sub>2n+2</sub>. <br><br>It has a single C-C bond as a functional group <br><br>Alkanes are saturated hydrocarbons because only single C-C bonds are present.',
+         1,
+        
+        'Examples of Alkanes:<br><br>1 Carbon atom: Methane <br>CH<sub>4</sub> [n=1 C<sub>(1)</sub>H</sub>2(1)+2</sub> = CH<sub>4</sub>] <br><img src = "http://upload.wikimedia.org/wikipedia/commons/b/b2/Methane-2D-flat-small.png" height = 150px> &nbsp;&nbsp; \
+           <br><br>2 Carbon atoms: Ethane <br>C<sub>2</sub>H<sub>6</sub> [n=2 C<sub>(2)</sub>H<sub>2(2)+2</sub> = C<sub>2</sub>H<sub>6</sub>], <br><img src = "http://upload.wikimedia.org/wikipedia/commons/3/35/Ethan_Lewis.svg" height = 150px> &nbsp;&nbsp; \
+           <br><br>3 Carbon atoms: Propane <br>C<sub>3</sub>H<sub>8</sub> [n=3 C<sub>(3)</sub>H<sub>2(3)+2</sub> = C<sub>3</sub>H<sub>8</sub>], <br><img src = "http://upload.wikimedia.org/wikipedia/commons/a/a2/Propane-2D-flat.png" height = 150px> &nbsp;&nbsp; \
+           <br><br>4 Carbon atoms: Butane <br>C<sub>4</sub>H<sub>10</sub> [n=4 C<sub>(4)</sub>H<sub>2(4)+2</sub> = C<sub>4</sub>H<sub>10</sub>], <br><img src = "http://upload.wikimedia.org/wikipedia/commons/b/b9/Butane-2D-flat.png" height = 150px>',
+        
+        'Notice the names of Alkanes all end with -ane as in <u>Meth</u>ane, <u>Eth</u>ane, <u>Prop</u>ane, <u>But</u>ane. \
+           <br>The underlined first part of the respective alkane names signifies the number of Carbon atoms in the parent chain. \
+           <br><br>Meth- = 1 Carbon atom, <br>Eth- = 2 Carbon atoms, <br>Prop- = 3 Carbon atoms, <br>But- = 4 Carbon atoms',
+         2,
+         3,
+        
+        '<h3>IUPAC nomenclature: <br><br><ul><li>The longest chain is used as the parent name \
+            <li> Alkyl side chains (-C<sub>n</sub>H<sub>2n+1</sub>) are named according to the number of carbon atoms present (1 Carbon atom - Methyl, 2 Carbon atoms - Ethyl, 3 Carbon atoms - Propyl, 4 Carbon atoms - Butyl)</li> \
+            <li> The position of side chains are numbered accordingly</li> \
+            <li> Side chains of same type are given prefix di, tri, tetra (2,3,4) according to their numbers present</li> \
+            <li> Side chains are arranged alphabetically disregarding prefixes (eg ethyl, methyl, propyl, butyl)</li> \
+            <li> Smaller numbers are chosen when naming compounds</li></ul></h3>',
+        
+        'Example of an IUPAC nomenclature:<br><br><img src="http://images.wikia.com/gcse/images/6/60/2-methyl_propane.jpg" height="200px"><br> \
+            2-methylpropane <br><br><h3>Explanation:<ul><li>This structural formula is a type of propane because the longest parent chain has 3 Carbon atoms</li> \
+            <li>There is a side chain with 1 Carbon atom hence the name methyl</li> \
+            <li>This side chain is bolted onto the second Carbon atom of the parent chain hence the number 2</li></ul></h3>',   
+        
+        'Physical Properties of Alkanes:<br><br><h3><ul><li>As number of Carbon atoms increases...</li> \
+            <li>Strength of Van der Waals (VdW) forces between molecules increase...</li> \
+            <li>More energy is  required to overcome these VdW forces...</li> \
+            <li>Boiling point increases...</li><br><li>Insoluble in water</li><li>Soluble in organic solvents</li></ul></h3>',
+        
+        'Chemical Properties of Alkanes:<br><br><h3><ul><li>Undergo substitution reaction with halogens in sunlight <br> \
+        eg CH<sub>4</sub> + Cl<sub>2</sub> -> CH<sub>3</sub>Cl + HCl<br><br><li>Burn in excess oxygen <br> eg C<sub>2</sub>H<sub>6</sub> + 3O<sub>2</sub> -> 2CO<sub>2</sub> + 3H<sub>2</sub>0</li></ul></h3>'  
+        ]
+
+
+class LearnHandler(PageHandler):
+    def get(self, chapter, id):
+        learn_id = int(id)-1
+        if isinstance(learn[learn_id], int ): 
+            self.render('newquiz.html', quiz=quiz, id=learn[learn_id])   
+        else:    
+            self.render('learn.html', learn=learn, id=learn_id)   
+
+    def post(self, chapter, id):
+        learn_id = int(id)-1
+        quiz_id = learn[learn_id]
+        answer = self.request.get("quiz%s" % str(quiz_id))
+        correct_answer_id = quiz[quiz_id][-1]
+
+        if answer == '':                                            #form validation if no answer is selected
+            self.write("Please click the Back button and select an answer.")
+            return
+
+        
+        if int(answer) == quiz[quiz_id][-1]:
+            self.render('newanswer.html', solution = "right", quiz=quiz, id=quiz_id, next=learn_id+2, \
+            given_answer = quiz[quiz_id][int(answer)], correct_answer = quiz[quiz_id][correct_answer_id])        
+        else:
+            self.render('newanswer.html', solution = "wrong", quiz=quiz, id=quiz_id, next=learn_id+2, \
+            given_answer = quiz[quiz_id][int(answer)], correct_answer = quiz[quiz_id][correct_answer_id])
 
 
 
@@ -343,6 +429,7 @@ app = webapp2.WSGIApplication([('/', MainHandler),
                                ('/about', AboutHandler),
                                ('/playlist', PlaylistHandler),
                                ('/quiz/([0-9]+)', QuizHandler),
+                               ('/learn/([0-9]+)/([0-9]+)', LearnHandler),
                                ('/submit', SubmitHandler),
                                ('/signup', SignUpHandler)],
                               debug=True)
