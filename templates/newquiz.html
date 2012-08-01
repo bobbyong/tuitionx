@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	
+	<div class="row">
+
+        <div class="span8 offset2">
+          <h2>{{title}} Quiz</h2>
+          <div class="quiz-box">
+            <h1>{{ quiz[id][0] | safe}}</h1>
+              <br>
+              <form method = "post">
+                <input type="radio" name="quiz{{ id }}" value="1" /> {{ quiz[id][1] | safe }}<br>
+                <input type="radio" name="quiz{{ id }}" value="2" /> {{ quiz[id][2] | safe }}<br>
+                <input type="radio" name="quiz{{ id }}" value="3" /> {{ quiz[id][3] | safe }}<br>
+                <input type="radio" name="quiz{{ id }}" value="4" /> {{ quiz[id][4] | safe }}<br>
+                <input type="radio" name="quiz{{ id }}" value="5" /> {{ quiz[id][5] | safe }}<br>
+                <input type="radio" name="quiz{{ id }}" value="6" /> {{ quiz[id][6] | safe }}
+                <br><br>
+                <button type="submit" class="btn">Answer</button>
+              </form>
+          </div>
+          
+          
+        
+        </div>
+
+
+        
+     
+        
+  </div>
+
+{% endblock %}

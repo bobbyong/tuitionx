@@ -108,11 +108,25 @@ quiz = [('Which of the following are hydrocarbons?', 'Alkanes and Alkenes','Alka
          Number of Carbon atoms = 4: n=4 C<sub>(4)</sub>H<sub>2(4)+2</sub> = C<sub>4</sub>H<sub>10</sub>' ,6),
 
         ('How many Carbon atoms does Propane have?','1','2','3','4','5','6','<br>Propane <img src="http://upload.wikimedia.org/wikipedia/commons/a/a2/Propane-2D-flat.png" \
-            height = 150px><br><br>Remember: <br>Meth- has 1 Carbon atom, <br>Eth- has 2 Carbon atoms, <br>Prop- has 3 Carbon atoms, <br>But- has 4 Carbon atoms',3),
+            height = 150px><br><br>Remember: <br>Meth- has 1 Carbon atom, <br>Eth- has 2 Carbon atoms, <br>Prop- has 3 Carbon atoms, <br>But- has 4 Carbon atoms \
+            <br><br><i><h3>Kalau susah nak hafal ni...Hafal \"Mak Engkau Perut Buncit\" - Methane, Ethane, Propane, Butane: 1,2,3,4 Carbon atoms.</h3></i>',3),
 
         ('What is the name of this alkane? <br><img src="http://upload.wikimedia.org/wikipedia/commons/b/b9/Butane-2D-flat.png" height="150px">',\
             'Methane','Ethane','Propane','Butane', 'Pentane','Hexane','This is a Butane. The alkane shown has 4 Carbon atoms with single C-C bonds as the only functional group. \
-             With 4 Carbon atoms on the parent chain and no side chains, the naming convention states that this alkane is named Butane.',4)]
+             With 4 Carbon atoms on the parent chain and no side chains, the naming convention states that this alkane is named Butane.',4),
+
+        ('What is the name of this alkane?<br><br><img src="http://www.ivy-rose.co.uk/Chemistry/Organic/molecules/alkanes/methylbutane.gif" height="150px">','2-methylpropane','3-methylbutane',\
+            '2-methylbutane','2-ethylpropane','1,1-dimethylpropane','Pentane','The alkane shown has 4 Carbon atoms on its parent chain so it is a butane.  It has one side chain with 1 Carbon atom \
+            - a methyl. This side chain is attached to 2nd Carbon atom of the parent chain - not the 3rd because IUPAC naming convention states that the smaller number is chosen when naming compounds',3),
+
+        ('Which is this is not true for alkanes when the number of Carbon atoms increases?','Boiling point decreases','Insoluble in water', \
+          'Soluble in organic solvents','More energy is required to overcome Van der Waals forces', 'Strength of Van der Waals forces increases', 'Boiling point increases', \
+          'Alkanes are insoluble in water and soluble in organic compounds. As the number of Carbon atoms increases for an alkane, the strength of Van der Waals forces increases, \
+          thus more energy is required to break these bonds and as such boiling point will increase.', 1),
+
+        ('Which of the following reactions can an alkane undergo?','Combustion and Oxidation','Addition and Dehydration','Esterification and Substition','Dehydration and Combustion',\
+            'Substitution and Addition','Combustion and Substitution', 'Alkanes undergo only combustion and substitution reactions.<br>Chemical Properties of Alkanes:<br><br><h3><ul><li>Undergo substitution reaction with halogens in sunlight <br> \
+        eg CH<sub>4</sub> + Cl<sub>2</sub> -> CH<sub>3</sub>Cl + HCl<br><br><li>Burn in excess oxygen <br> eg C<sub>2</sub>H<sub>6</sub> + 3O<sub>2</sub> -> 2CO<sub>2</sub> + 3H<sub>2</sub>0</li></ul></h3> ',6)]
 
 
 ##### Main Page #####
@@ -228,12 +242,12 @@ class QuizHandler(PageHandler):
 
 ##### Learn Page #####
 
-learn = ['Hydrocarbons are compounds that consist of H (Hydrogen) and C (Carbon) atoms only. <br><br> Hydrocarbons = Hydrogen + Carbon <br> That is why hydrocarbon compounds do not have any other elements apart from Hydrogen and Carbon, geddit?',
+alkane = ['Hydrocarbons are compounds that consist of H (Hydrogen) and C (Carbon) atoms only. <br><br> Hydrocarbons = Hydrogen + Carbon <br> That is why hydrocarbon compounds do not have any other elements apart from Hydrogen and Carbon, geddit?',
          
-         'Alkanes and Alkenes are hydrocarbons because they consist of H and C atoms only. <br><br> Ethane <img src="http://upload.wikimedia.org/wikipedia/commons/9/99/Ethane-flat.png" height=150px> &nbsp;&nbsp;&nbsp; Ethene <img src="http://images.suite101.com/1954206_com_ethylene2.png" height=150px> <br><br> Look, there is no Oxygen or any other weird atoms there!',
+         'Alkanes and Alkenes are hydrocarbons because they consist of H and C atoms only. <br><br> Ethane <img src="http://upload.wikimedia.org/wikipedia/commons/9/99/Ethane-flat.png" height=150px> &nbsp;&nbsp;&nbsp; Ethene <img src="http://images.suite101.com/1954206_com_ethylene2.png" height=150px> <br><br> Look, there\'s no Oxygen or any other weird atoms there!',
          0,
          
-         'Alkanes have the general formula C<sub>n</sub>H<sub>2n+2</sub>. <br><br>It has a single C-C bond as a functional group <br><br>Alkanes are saturated hydrocarbons because only single C-C bonds are present.',
+         'Alkanes have the general formula C<sub>n</sub>H<sub>2n+2</sub>. <br><br>It has a single C-C bond as a functional group <br><br>Alkanes are saturated hydrocarbons because only single C-C bonds are present.<br><br><h3><i>There ain\'t any easy way to put those into memory except by simply memorising them!</i></h3>',
          1,
         
         'Examples of Alkanes:<br><br>1 Carbon atom: Methane <br>CH<sub>4</sub> [n=1 C<sub>(1)</sub>H</sub>2(1)+2</sub> = CH<sub>4</sub>] <br><img src = "http://upload.wikimedia.org/wikipedia/commons/b/b2/Methane-2D-flat-small.png" height = 150px> &nbsp;&nbsp; \
@@ -243,7 +257,8 @@ learn = ['Hydrocarbons are compounds that consist of H (Hydrogen) and C (Carbon)
         
         'Notice the names of Alkanes all end with -ane as in <u>Meth</u>ane, <u>Eth</u>ane, <u>Prop</u>ane, <u>But</u>ane. \
            <br>The underlined first part of the respective alkane names signifies the number of Carbon atoms in the parent chain. \
-           <br><br>Meth- = 1 Carbon atom, <br>Eth- = 2 Carbon atoms, <br>Prop- = 3 Carbon atoms, <br>But- = 4 Carbon atoms',
+           <br><br>Meth- = 1 Carbon atom, <br>Eth- = 2 Carbon atoms, <br>Prop- = 3 Carbon atoms, <br>But- = 4 Carbon atoms \
+           <br><br><i><h3>Kalau susah nak hafal ni...Hafal \"Mak Engkau Perut Buncit\" - Methane, Ethane, Propane, Butane: 1,2,3,4 Carbon atoms.</h3></i>',
          2,
          3,
         
@@ -257,28 +272,47 @@ learn = ['Hydrocarbons are compounds that consist of H (Hydrogen) and C (Carbon)
         'Example of an IUPAC nomenclature:<br><br><img src="http://images.wikia.com/gcse/images/6/60/2-methyl_propane.jpg" height="200px"><br> \
             2-methylpropane <br><br><h3>Explanation:<ul><li>This structural formula is a type of propane because the longest parent chain has 3 Carbon atoms</li> \
             <li>There is a side chain with 1 Carbon atom hence the name methyl</li> \
-            <li>This side chain is bolted onto the second Carbon atom of the parent chain hence the number 2</li></ul></h3>',   
+            <li>This side chain is bolted onto the second Carbon atom of the parent chain hence the number 2</li></ul></h3>', 
+
+        4,      
         
         'Physical Properties of Alkanes:<br><br><h3><ul><li>As number of Carbon atoms increases...</li> \
             <li>Strength of Van der Waals (VdW) forces between molecules increase...</li> \
             <li>More energy is  required to overcome these VdW forces...</li> \
             <li>Boiling point increases...</li><br><li>Insoluble in water</li><li>Soluble in organic solvents</li></ul></h3>',
+
+        5,    
         
         'Chemical Properties of Alkanes:<br><br><h3><ul><li>Undergo substitution reaction with halogens in sunlight <br> \
-        eg CH<sub>4</sub> + Cl<sub>2</sub> -> CH<sub>3</sub>Cl + HCl<br><br><li>Burn in excess oxygen <br> eg C<sub>2</sub>H<sub>6</sub> + 3O<sub>2</sub> -> 2CO<sub>2</sub> + 3H<sub>2</sub>0</li></ul></h3>'  
+        eg CH<sub>4</sub> + Cl<sub>2</sub> -> CH<sub>3</sub>Cl + HCl<br><br><li>Burn in excess oxygen <br> eg C<sub>2</sub>H<sub>6</sub> + 3O<sub>2</sub> -> 2CO<sub>2</sub> + 3H<sub>2</sub>0</li></ul></h3>',
+        6  
         ]
+
+alkene = ['1','2']
+
+chapter_dic = {1: ['Alkanes',alkane], 2: ['Alkenes',alkene]}
 
 
 class LearnHandler(PageHandler):
     def get(self, chapter, id):
         learn_id = int(id)-1
-        if isinstance(learn[learn_id], int ): 
-            self.render('newquiz.html', quiz=quiz, id=learn[learn_id])   
-        else:    
-            self.render('learn.html', learn=learn, id=learn_id)   
+        learn = chapter_dic[int(chapter)][1]
+        title = chapter_dic[int(chapter)][0]
+
+        if int(id) <= len(learn):
+            if isinstance(learn[learn_id], int ): 
+                self.render('newquiz.html', quiz=quiz, id=learn[learn_id], title=title) 
+            else:    
+                self.render('learn.html', learn=learn, id=learn_id, chapter=chapter, title=title)    
+        else:
+            self.render('endoflearn.html')  
+           
 
     def post(self, chapter, id):
         learn_id = int(id)-1
+        learn = chapter_dic[int(chapter)][1]
+        title = chapter_dic[int(chapter)][0]
+        
         quiz_id = learn[learn_id]
         answer = self.request.get("quiz%s" % str(quiz_id))
         correct_answer_id = quiz[quiz_id][-1]
@@ -290,10 +324,10 @@ class LearnHandler(PageHandler):
         
         if int(answer) == quiz[quiz_id][-1]:
             self.render('newanswer.html', solution = "right", quiz=quiz, id=quiz_id, next=learn_id+2, \
-            given_answer = quiz[quiz_id][int(answer)], correct_answer = quiz[quiz_id][correct_answer_id])        
+            given_answer = quiz[quiz_id][int(answer)], correct_answer = quiz[quiz_id][correct_answer_id], points = '+50', title=title)        
         else:
             self.render('newanswer.html', solution = "wrong", quiz=quiz, id=quiz_id, next=learn_id+2, \
-            given_answer = quiz[quiz_id][int(answer)], correct_answer = quiz[quiz_id][correct_answer_id])
+            given_answer = quiz[quiz_id][int(answer)], correct_answer = quiz[quiz_id][correct_answer_id], points = '+0', title=title)
 
 
 

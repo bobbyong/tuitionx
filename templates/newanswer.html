@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	
+	<div class="row">
+        
+        <div class="span8 offset2">
+          <h2>Answer to {{title}} Quiz</h2>
+          
+          <div class="quiz-box">
+            <h1>You got it {{ solution }}!</h1>
+            <br>
+            <h1>{{ quiz[id][0] | safe}}</h1>
+                
+            <br>You answered {{ given_answer | safe}}.
+            <br>The correct answer is {{ correct_answer | safe}}.
+
+            <br><br>
+            <div class = "justify">Explanation:<br>
+            {{ quiz[id][-2] | safe}}</div>
+
+          </div>
+        <br>
+        <a href="/learn/1/{{id}}" class="btn btn-primary btn-large">Previous</a>
+        <span class="signup-button"><a href="/learn/1/{{next}}" class="btn btn-primary btn-large">Next</a></span>  
+
+        </div>
+
+
+        <div class="span2">
+          <div class ="points">
+            {{points}}<br><h2>POINTS</h2>
+          </div>
+        </div>
+        
+  </div>
+
+{% endblock %}
