@@ -92,7 +92,7 @@ addmaths_f4= { 'ch2': [(1, 'Quadratic Equations', 'Jg0nvDjdqsI',''),
 ### PLAYLIST FORMAT --> DICTIONARY {chapter: [playlist]}
 ### [playlist] format --> [id, title, youtube link, time_delay]    
 
-quiz = [('Which of the following are hydrocarbons?', 'Alkanes and Alkenes','Alkanes and Carboxylic Acids', \
+alkane_quiz = [('Which of the following are hydrocarbons?', 'Alkanes and Alkenes','Alkanes and Carboxylic Acids', \
          'Alkenes and Alcohols','Alcohols and Carboxylic Acids', 'Alkenes and Carboxylic Acids', 'Alkanes and Alcohols', \
          'Alkanes and Alkenes are hydrocarbons because they consist of H and C atoms only. Hydrocarbons are compounds that \
          consist of H (Hydrogen) and C (Carbon) atoms only. Alcohols have the functional group -OH. It has an O (Oxygen) \
@@ -128,7 +128,7 @@ quiz = [('Which of the following are hydrocarbons?', 'Alkanes and Alkenes','Alka
             'Substitution and Addition','Combustion and Substitution', 'Alkanes undergo only combustion and substitution reactions.<br>Chemical Properties of Alkanes:<br><br><h3><ul><li>Undergo substitution reaction with halogens in sunlight <br> \
         eg CH<sub>4</sub> + Cl<sub>2</sub> -> CH<sub>3</sub>Cl + HCl<br><br><li>Burn in excess oxygen <br> eg C<sub>2</sub>H<sub>6</sub> + 3O<sub>2</sub> -> 2CO<sub>2</sub> + 3H<sub>2</sub>0</li></ul></h3> ',6)]
 
-
+alkene_quiz = ['1','2']
 ##### Main Page #####
 
 class MainHandler(PageHandler):
@@ -290,32 +290,46 @@ alkane = ['Hydrocarbons are compounds that consist of H (Hydrogen) and C (Carbon
 
 alkene = ['1','2']
 
-chapter_dic = {1: ['Alkanes',alkane], 2: ['Alkenes',alkene]}
+chapter_dic = {1: ['Alkanes',alkane, alkane_quiz], 2: ['Alkenes',alkene, alkene_quiz]}
 
 
 class LearnHandler(PageHandler):
     def get(self, chapter, id):
         learn_id = int(id)-1
-        learn = chapter_dic[int(chapter)][1]
         title = chapter_dic[int(chapter)][0]
+        learn = chapter_dic[int(chapter)][1]
+        quiz = chapter_dic[int(chapter)][2]
+
+        
+        points = self.request.cookies.get('points')
+        if points == None:
+            points = 0
 
         if int(id) <= len(learn):
             if isinstance(learn[learn_id], int ): 
-                self.render('newquiz.html', quiz=quiz, id=learn[learn_id], title=title) 
+                self.render('newquiz.html', quiz=quiz, id=learn[learn_id], title=title, totalpoints=points) 
             else:    
-                self.render('learn.html', learn=learn, id=learn_id, chapter=chapter, title=title)    
+                self.render('learn.html', learn=learn, id=learn_id, chapter=chapter, title=title, totalpoints=points)    
         else:
-            self.render('endoflearn.html')  
+            self.render('endoflearn.html',totalpoints=points)  
            
 
     def post(self, chapter, id):
         learn_id = int(id)-1
-        learn = chapter_dic[int(chapter)][1]
         title = chapter_dic[int(chapter)][0]
-        
+        learn = chapter_dic[int(chapter)][1]
+        quiz = chapter_dic[int(chapter)][2]
+
         quiz_id = learn[learn_id]
         answer = self.request.get("quiz%s" % str(quiz_id))
         correct_answer_id = quiz[quiz_id][-1]
+
+
+        points = self.request.cookies.get('points')
+        if points == None:
+            points = 0
+
+
 
         if answer == '':                                            #form validation if no answer is selected
             self.write("Please click the Back button and select an answer.")
@@ -323,11 +337,18 @@ class LearnHandler(PageHandler):
 
         
         if int(answer) == quiz[quiz_id][-1]:
+            points = int(points) + 50
+            self.response.headers.add_header('Set-Cookie', 'points=%s; Path=/' % str(points))
+
             self.render('newanswer.html', solution = "right", quiz=quiz, id=quiz_id, next=learn_id+2, \
-            given_answer = quiz[quiz_id][int(answer)], correct_answer = quiz[quiz_id][correct_answer_id], points = '+50', title=title)        
+            given_answer = quiz[quiz_id][int(answer)], correct_answer = quiz[quiz_id][correct_answer_id], points = '+50', \
+            title=title, totalpoints=str(points))        
         else:
+            self.response.headers.add_header('Set-Cookie', 'points=%s; Path=/' % str(points))
+
             self.render('newanswer.html', solution = "wrong", quiz=quiz, id=quiz_id, next=learn_id+2, \
-            given_answer = quiz[quiz_id][int(answer)], correct_answer = quiz[quiz_id][correct_answer_id], points = '+0', title=title)
+            given_answer = quiz[quiz_id][int(answer)], correct_answer = quiz[quiz_id][correct_answer_id], points = '+0', \
+            title=title, totalpoints=str(points))
 
 
 
