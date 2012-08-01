@@ -158,7 +158,8 @@ class MainHandler(PageHandler):
             u = Signup(email=email)
             u.put()     
             
-            self.render('home.html', message="Thank you for signing up with TuitionX. You may now begin your learning journey.<br><br>") 
+            self.redirect('/learn/1/1')
+            #  self.render('home.html', message="Thank you for signing up with TuitionX. You may now begin your learning journey.<br><br>") 
         
 
 
