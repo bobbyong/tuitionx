@@ -243,7 +243,7 @@ class QuizHandler(PageHandler):
 
 ##### Learn Page #####
 
-alkane = ['Hydrocarbons are compounds that consist of H (Hydrogen) and C (Carbon) atoms only. <br><br> Hydrocarbons = Hydrogen + Carbon <br> That is why hydrocarbon compounds do not have any other elements apart from Hydrogen and Carbon, geddit?',
+alkane = ['Hydrocarbons are compounds that consist of H (Hydrogen) and C (Carbon) atoms only. <br><br> Hydrocarbons = Hydrogen + Carbon <br> That is why hydrocarbon compounds do not have any other elements apart from Hydrogen and Carbon, <i>geddit</i> ?',
          
          'Alkanes and Alkenes are hydrocarbons because they consist of H and C atoms only. <br><br> Ethane <img src="http://upload.wikimedia.org/wikipedia/commons/9/99/Ethane-flat.png" height=150px> &nbsp;&nbsp;&nbsp; Ethene <img src="http://images.suite101.com/1954206_com_ethylene2.png" height=150px> <br><br> Look, there\'s no Oxygen or any other weird atoms there!',
          0,
@@ -289,7 +289,49 @@ alkane = ['Hydrocarbons are compounds that consist of H (Hydrogen) and C (Carbon
         6  
         ]
 
-alkene = ['1','2']
+alkene = ['Alkenes have the general formula C<sub>n</sub>H<sub>2n</sub>.<br><br>Alkenes have a C=C double bond as a \
+                functional group - Alkenes are unsaturated hydrocarbons because of C=C double bonds. <br><br> \
+                Methene does not exist - Carbon atoms need 4 covalent bonds to achieve stable electron configuration - \
+                It is not possible to have a double C=C bond with only 1 Carbon atom',
+        
+        'Examples of Alkenes:<br><br>Ethene &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://upload.wikimedia.org/wikipedia/commons/8/8d/Ethene-2D-flat.png" height="150px"> \
+        <br><br> Propene <img src="http://www.chemeddl.org/resources/models360/files/8252/propene-lewis2.png" height="150px">',
+
+        'Preparation of Alkenes: <br><br> Catalyst - strong acid catalyst <br>(concentrated Sulphuric Acid - H<sub>2</sub>SO<sub>4</sub> or \
+            Phosphoric Acid - H<sub>3</sub>PO<sub>4</sub>) <br>Dehydration of Alcohol produces Alkene and Water <br><br>\
+            <img src="/static/img/dehydration.jpg">',
+
+        'Physical properties of alkenes:<br><h3><ul><li>Boiling point increases with number of Carbon atoms</li><li>Insoluble in water</li> \
+            <li>Soluble in organic solvents</li><li>Burn in air forming CO2 and water</li></ul></h3>',
+
+        'Chemical properties of alkenes:<br><h3><ul><li>Undergo addition reaction with hydrogen, halogens, steam, acidified \
+            potassium manganate (VII) solution</li><li>Form polymers under polymerisation process</li></ul></h3>',
+
+        'Hydrogenation:<br><br>Catalyst - Platinum, Nickel or palladium<br>Temperature - 180&deg;C<br><br><img src="http://www.chemistryrules.me.uk/middle/hydrogenationequation.gif">',
+
+        'Hydration:<br><br>Catalyst - Concentrated Phosphoric Acid, H<sub>3</sub>PO<sub>4</sub><br>Temperature - 300&deg;C<br>\
+            Pressure - 60atm<br><br><img src="/static/img/hydrogenation.jpg">',
+
+        'Halogenation in organic solvents:<br><br><img src="http://upload.wikimedia.org/wikipedia/commons/a/aa/Chlorine_and_etene_addition.png">',
+
+        'Reaction with cold acidified potassium manganate (VII) solution to form diols:<br>(Purple solution is decolourised)<br><br>\
+            CH<sub>2</sub>=CH-CH<sub>3</sub> + [O] + H<sub>2</sub>O -> CH<sub>2</sub>(OH)-CH(OH)CH<sub>3</sub>',
+
+        'Polymerisation:<br><br><h3><ul><li>Process where thousands of simple molecules (monomers) combine to form giant long-chain molecules (polymers)\
+            </li><li>Alkene monomers form polymers at high temperatures</li><li>nCH2=CH2 -->(-CH2-CH2-)n</li></ul></h3><br>Natural polymers:<br>\
+            <h3>Monomer: Glucose<br>Polymer: Starch<br>Monomer: Amino acids<br>Polymer: Protein</h3><br>Synthetic polymers:<br>\
+            <h3>Monomer: Ethene<br>Polymer: Polyethene<br>Monomer: Vinyl chloride<br>Polymer: Polyvinylchloride</h3>',
+
+        'Saturated vs Unsaturated Hydrocarbons (Alkanes vs Alkenes)<br><h3><ul><li>Saturated hydrocarbon has only C-C single bonds</li> \
+            <li>Unsaturated hydrocarbons have at least one C=C double bond</li><br><li>Saturated hydrocarbons undergo substitution reaction\
+            </li><li>Unsaturated hydrocarbons undergo addition reaction</li><br><li>Unsaturated hydrocarbon produces more soot during \
+            combustion</li><li>This is because the percentage content of Carbon in unsaturated hydrocarbon is higher</li></ul></h3><br>Chemical test:<h3><ul><li>Add drops of bromine water \
+            to both alkane and alkene compounds</li><li>Shake well</li><li>Alkane will not decolourise bromine water</li>\
+            <li>Alkene will change bromine water to colourless</li></ul></h3>',
+
+        'Isomerism<br><br>Isomers are molecules with same molecular formula but different structural formula.<br><br>\
+        All of the following molecules have the same molecular formula, C<sub>5</sub>H<sub>12</sub> but different \
+        structural formula.<br><br><img src="/static/img/pentaneisomers.jpg">']
 
 chapter_dic = {1: ['Alkanes',alkane, alkane_quiz], 2: ['Alkenes',alkene, alkene_quiz]}
 
@@ -343,13 +385,13 @@ class LearnHandler(PageHandler):
 
             self.render('newanswer.html', solution = "right", quiz=quiz, id=quiz_id, next=learn_id+2, \
             given_answer = quiz[quiz_id][int(answer)], correct_answer = quiz[quiz_id][correct_answer_id], points = '+50', \
-            title=title, totalpoints=str(points))        
+            title=title, totalpoints=str(points),chapter=chapter)        
         else:
             self.response.headers.add_header('Set-Cookie', 'points=%s; Path=/' % str(points))
 
             self.render('newanswer.html', solution = "wrong", quiz=quiz, id=quiz_id, next=learn_id+2, \
             given_answer = quiz[quiz_id][int(answer)], correct_answer = quiz[quiz_id][correct_answer_id], points = '+0', \
-            title=title, totalpoints=str(points))
+            title=title, totalpoints=str(points), chapter=chapter)
 
 
 
