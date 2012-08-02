@@ -129,6 +129,13 @@ alkane_quiz = [('Which of the following are hydrocarbons?', 'Alkanes and Alkenes
         eg CH<sub>4</sub> + Cl<sub>2</sub> -> CH<sub>3</sub>Cl + HCl<br><br><li>Burn in excess oxygen <br> eg C<sub>2</sub>H<sub>6</sub> + 3O<sub>2</sub> -> 2CO<sub>2</sub> + 3H<sub>2</sub>0</li></ul></h3> ',6)]
 
 alkene_quiz = ['1','2']
+
+alcohol_quiz = ['1','2']
+
+carboxylic_quiz = ['1','2']
+
+ester_quiz = ['1','2']
+
 ##### Main Page #####
 
 class MainHandler(PageHandler):
@@ -295,7 +302,7 @@ alkene = ['Alkenes have the general formula C<sub>n</sub>H<sub>2n</sub>.<br><br>
                 It is not possible to have a double C=C bond with only 1 Carbon atom',
         
         'Examples of Alkenes:<br><br>Ethene &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://upload.wikimedia.org/wikipedia/commons/8/8d/Ethene-2D-flat.png" height="150px"> \
-        <br><br> Propene <img src="http://www.chemeddl.org/resources/models360/files/8252/propene-lewis2.png" height="150px">',
+            <br><br> Propene <img src="http://www.chemeddl.org/resources/models360/files/8252/propene-lewis2.png" height="150px">',
 
         'Preparation of Alkenes: <br><br> Catalyst - strong acid catalyst <br>(concentrated Sulphuric Acid - H<sub>2</sub>SO<sub>4</sub> or \
             Phosphoric Acid - H<sub>3</sub>PO<sub>4</sub>) <br>Dehydration of Alcohol produces Alkene and Water <br><br>\
@@ -333,7 +340,56 @@ alkene = ['Alkenes have the general formula C<sub>n</sub>H<sub>2n</sub>.<br><br>
         All of the following molecules have the same molecular formula, C<sub>5</sub>H<sub>12</sub> but different \
         structural formula.<br><br><img src="/static/img/pentaneisomers.jpg">']
 
-chapter_dic = {1: ['Alkanes',alkane, alkane_quiz], 2: ['Alkenes',alkene, alkene_quiz]}
+
+alcohol = ['Alcohols have the general formula C<sub>n</sub>H<sub>2n+1</sub>OH<br><br>Alcohols have the functional group -OH \
+                <br><br>Methanol &nbsp;&nbsp;&nbsp;<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Methanol_Lewis.svg/121px-Methanol_Lewis.svg.png" height="150px"> \
+                <br><br>Ethanol &nbsp;&nbsp;&nbsp;<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Ethanol-structure.svg/529px-Ethanol-structure.svg.png" height="150px"> \
+                <br><br>Propanol &nbsp;&nbsp;&nbsp;<img src="http://wiki.chemeddl.org/mediawiki/images/2/2f/Chapter_8_page_25-1.jpg" height="150px">',
+
+            'Physical properties of alcohols<br><br><h3><ul><li>Colourless liquids</li><li>Soluble in water (because of hydrogen \
+                bonds)</li><li>Soluble in organic solvents</li><li>Burn in air with blue flame producing CO<sub>2</sub> and water</li></ul></h3>',
+
+            'Hydrogen bonds<br><br><h3><ul><li>Alcohol molecules form hydrogen bonds with water molecules...</li><li>That\'s why alcohols are \
+                soluble in water although being covalent compounds.</li><li>That\'s why boiling points are higher than expected...</li></ul></h3>',
+
+            'Preparation of alcohols:<br><br>Hydration of alkenes<br>Mixture of alkene and steam<br>Catalyst - Phosphoric Acid, H<sub>3</sub>PO<sub>4</sub> \
+                Temperature - 300&deg;C<br>Pressure - 60atm<br><br>Fermentation of glucose solution in presence of zymase enzyme from yeast \
+                <br>C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> &rarr; 2C<sub>2</sub>H<sub>5</sub>OH + 2CO<sub>2</sub>',
+
+            'Reactions with Sodium Metal:<br>Hydrogen gas is released<br>2C<sub>2</sub>H<sub>5</sub>OH + 2Na &rarr; 2C<sub>2</sub>H<sub>5</sub>ONa + H<sub>2</sub> \
+                <br><br><br>Esterification:<br>Mixture of alcohols and carboxylic acids heated under reflux<br>Catalyst: concentrated Sulphuric Acid, H<sub>2</sub>SO<sub>4</sub> \
+                <br>C<sub>2</sub>H<sub>5</sub>OH + CH<sub>3</sub>COOH &rarr; CH<sub>3</sub>COOC<sub>2</sub>H<sub>5</sub> + H<sub>2</sub>0',
+
+            'Oxidation of Primary Alcohols to Carboxylic Acids:<br>Mixture of alcohol, K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>, Potassium Dichromate (VI) and concentrated H<sub>2</sub>SO<sub>4</sub>, Sulphuric Acid heated under reflux<br>\
+                CH<sub>3</sub>CH<sub>2</sub>OH + 2[O] &rarr; CH<sub>3</sub>COOH + H<sub>2</sub><br><br><br>Dehydration of Primary Alcohols \
+                <br>Alcohol vapour passed over concentrated H<sub>2</sub>SO<sub>4</sub>/H<sub>3</sub>PO<sub>4</sub><br><br><img src="/static/img/dehydration.jpg">'        ]
+
+carboxylic = ['Carboxylic acids have the general formula C<sub>n</sub>H<sub>2n+1</sub>COOH<br><br>Carboxylic acids have the \
+                functional group -COOH<br><br>Ethanoic Acid (aka Acetic Acid)<br><img src="http://upload.wikimedia.org/wikipedia/commons/f/fd/Acetic-acid-2D-flat.png" height="150px">',
+
+            'Preparation of Carboxylic Acids: <br><br>Oxidation of Primary Alcohols<br>Mixture of alcohol, K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>, Potassium Dichromate (VI) and concentrated H<sub>2</sub>SO<sub>4</sub>, Sulphuric Acid heated under reflux<br>\
+                CH<sub>3</sub>CH<sub>2</sub>OH + 2[O] &rarr; CH<sub>3</sub>COOH + H<sub>2</sub><br><br>',
+
+            'Properties of Carboxylic Acids:<br><br><h3><ul><li>Higher boiling points than alcohols due to dimer formation \
+            through hydrogen bonding <br><br><img src="http://upload.wikimedia.org/wikipedia/commons/c/c9/Carboxylic_acid_dimers.png" height="150px"> \
+            </li><br><li>Carboxylic acids with up to 4 Carbon atoms are miscible in water due to \
+            hydrogen bonding</li><li>Weak acids - dissociate to produce hydroxonium ions and carboxylate ions</li><li>\
+            Neutralised by alkalis to form salts</li><li>React with zinc or magnesium metal forming hydrogen gas\
+            <br>2CH<sub>3</sub>COOH + Mg &rarr; (CH<sub>3</sub>COO)<sub>2</sub>Mg + H<sub>2</sub></li><br><li>\
+            React with marble chips forming CO<sub>2</sub> gas<br>2CH<sub>3</sub>COOH + CaCO<sub>3</sub> &rarr; \
+            (CH<sub>3</sub>COOH)<sub>2</sub>Ca + CO<sub>2</sub> + H<sub>2</sub>O</li><br><li>Undergo esterification when heated together with \
+            alcohols and concentrated H<sub>2</sub>SO<sub>4</sub> under reflux</li></ul></h3>']
+
+ester = ['Mixture of Carboxylic acids and Alcohols undergo esterification when heated together under reflux with concentrated H<sub>2</sub>SO<sub>4</sub>\
+            <br><br>Heating under reflux is used for reactions involving alcohols because of their low boiling points to prevent easy evaporation \
+            <br><br>Butanoic Acid + Propanol &rarr; Propyl Butanoate<br>Propanoic Acid + Ethanol &rarr; Ethyl Propanoate<br>Ethanoic Acid + Methanol &rarr; Methyl ethanoate \
+            <br><br><i><h3>Remember the name of the alcohol comes first in an ester name.</h3></i>',
+
+        'Properties of esters:<br><br><h3><ul><li>Sweet, fruity smell</li><li>Less dense than water</li><li>Immiscible with water</li><ul></h3>']
+
+
+chapter_dic = {1: ['Alkanes',alkane, alkane_quiz], 2: ['Alkenes',alkene, alkene_quiz], 3: ['Alcohols',alcohol, alcohol_quiz],
+               4: ['Carboxylic Acids',carboxylic, carboxylic_quiz], 5: ['Esters', ester, ester_quiz]}
 
 
 class LearnHandler(PageHandler):
