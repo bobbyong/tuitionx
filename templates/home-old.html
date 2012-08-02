@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	
+	<div class="row">
+        
+        <div class="span8">
+          <h2>Home</h2>
+          <br>
+          <strong>{{message | safe}}</strong>
+          
+          
+          TuitionX is built with the following components in mind:
+          <br><br>
+          1. <a href="/playlist?subject=addmaths&year=f4&chapter=ch2&lesson=1">Video Lectures </a><br>
+          2. <a href="/learn/1/1">Quizzes </a><br>
+          3. Past Year SPM Questions + Video Solutions (Coming Soon) <br>
+          4. Ask A Question to the Tutors (Coming Soon) <br>
+          5. Study Notes Wiki (Coming Soon) <br>
+          6. Trial Exam Paper Exchange (Coming Soon) <br>
+          7. Memorisation Game (Coming Soon) 
+
+          <br><br>
+          Many of these features are still in web development and will be progressively rolled out.<br>
+          The first subject that TuitionX will be focusing is SPM Additional Mathematics Form 4. <br>
+          All SPM subjects will be progressively added over time.
+          <br><br>
+
+          <form method="post">
+
+            Email:
+            <input type="text" name="email" value=""> 
+			<button type="submit" class="btn register-btn">Register</button><br>
+			<span class="signup-error">{{error_email}}{{error_email_register}}</span>
+          </form>
+
+     
+          
+          <!-- Twitter Tweet Link -->
+
+            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://tuitionx.com" data-text="Check out this FREE online tuition initiative to help Malaysian students prepare for SPM" data-via="TuitionX" data-size="large">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+            <!-- Facebook Share Button -->
+
+            <div id="fb-root"></div>
+            <script>(function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=363206957086219";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+
+            <div class="fb-like" data-href="http://facebook.com/tuitionx" data-send="true" data-width="450" data-show-faces="true"></div>
+
+            <br>
+
+
+        </div>
+        
+            
+        
+  </div>
+
+{% endblock %}

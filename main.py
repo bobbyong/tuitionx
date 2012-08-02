@@ -143,7 +143,13 @@ class MainHandler(PageHandler):
         self.render('main.html')
 
     def post(self):
-        have_error = False
+        email = self.request.get('email')
+        u = Signup(email=email)
+        u.put()     
+            
+        self.redirect('/learn/1/1')
+
+        """have_error = False
         email = self.request.get('email')
         
         params = dict(email = email)
@@ -167,7 +173,7 @@ class MainHandler(PageHandler):
             
             self.redirect('/learn/1/1')
             #  self.render('home.html', message="Thank you for signing up with TuitionX. You may now begin your learning journey.<br><br>") 
-        
+        """
 
 
 ##### Video Playlist Page #####
