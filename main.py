@@ -147,7 +147,7 @@ class MainHandler(PageHandler):
         u = Signup(email=email)
         u.put()     
             
-        self.redirect('/learn/1/1')
+        self.redirect('/home')
 
         """have_error = False
         email = self.request.get('email')
