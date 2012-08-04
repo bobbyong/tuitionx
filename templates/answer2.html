@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	
+	<div class="row">
+        <div class = "span2">
+          <div class ="total-points">
+            <h2>TOTAL POINTS:</h2>{{totalpoints}}
+          </div>
+        </div>
+
+        <div class="span8">
+          <h2>Answer to Quiz</h2>
+          
+          <div class="quiz-box">
+            <h1>You got it {{ solution }}!</h1>
+            <br> {{ quiz[id][-1] | safe}}.
+
+            <br><br>
+            
+
+          </div>
+        <br>
+        <a href="/quiz/{{chapter}}/{{next-2}}" class="btn btn-primary btn-large">Previous</a>
+        <span class="signup-button"><a href="/quiz/{{chapter}}/{{next}}" class="btn btn-primary btn-large">Next</a></span>  
+
+        </div>
+
+
+        <div class="span2">
+          <div class ="points">
+            {{points}}<br><h2>POINTS</h2>
+          </div>
+        </div>
+        
+  </div>
+
+{% endblock %}

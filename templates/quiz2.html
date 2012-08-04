@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	
+	<div class="row">
+        <div class = "span2">
+          <div class ="total-points">
+            <h2>TOTAL POINTS:</h2>{{totalpoints}}
+          </div>
+        </div>
+
+        <div class="span8">
+          <h2>Quiz</h2>
+          <div class="quiz-box">
+            <h1>{{ quiz[id][0] | safe}}</h1>
+              <br>
+              <form method = "post">
+                Blank #1: <input type="text" name="input1" /><br>
+                Blank #2: <input type="text" name="input2" />
+                <br><br>
+                <button type="submit" class="btn">Answer</button>
+              </form>
+          </div>
+          
+          
+        
+        </div>
+
+
+        
+     
+        
+  </div>
+
+{% endblock %}

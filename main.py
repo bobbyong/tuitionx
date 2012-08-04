@@ -128,13 +128,146 @@ alkane_quiz = [('Which of the following are hydrocarbons?', 'Alkanes and Alkenes
             'Substitution and Addition','Combustion and Substitution', 'Alkanes undergo only combustion and substitution reactions.<br>Chemical Properties of Alkanes:<br><br><h3><ul><li>Undergo substitution reaction with halogens in sunlight <br> \
         eg CH<sub>4</sub> + Cl<sub>2</sub> -> CH<sub>3</sub>Cl + HCl<br><br><li>Burn in excess oxygen <br> eg C<sub>2</sub>H<sub>6</sub> + 3O<sub>2</sub> -> 2CO<sub>2</sub> + 3H<sub>2</sub>0</li></ul></h3> ',6)]
 
-alkene_quiz = ['1','2']
+alkene_quiz = [('Which of the following is true for alkenes?','General formula: C<sub>n</sub>H<sub>2n+2</sub>, Functional group: Single C-C bonds', \
+                    'General formula: C<sub>n</sub>H<sub>2n+1</sub>OH, Functional group: -OH','General formula: C<sub>n</sub>H<sub>2n</sub>, Functional group: Double C=C bonds', \
+                    'General formula: C<sub>n</sub>H<sub>2n</sub>, Functional group: Single C-C bonds','General formula: C<sub>n</sub>H<sub>2n+2</sub>, Functional group: Double C=C bonds', \
+                    'General formula: C<sub>n</sub>H<sub>2n+1</sub>COOH, Functional group: -COOH','Alkenes have the general formula C<sub>n</sub>H<sub>2n</sub> and the functional group of double C=C bonds',3),
+
+                ('What is the catalyst required in the preparation of alkenes (dehydration of alcohol to form alkenes)','Concentrated H<sub>2</sub>SO<sub>4</sub> or H<sub>3</sub>PO<sub>4</sub>', 'Platinum', 'Zinc', 'Nickel', \
+                    'Ethanoic Acid','CaCO<sub>3</sub>','Dehydration of Alcohol with the presence of concentrated Sulphuric Acid, H<sub>2</sub>SO<sub>4</sub> or Phosphoric Acid, H<sub>3</sub>PO<sub>4</sub> as catalyst produces Alkene and Water. \
+                    <br><br><img src="/static/img/dehydration.jpg" height="150px">',1),
+
+                ('What is formed when propene is burned in air?','Propane and water','Carbon and Hydrogen','Carbon Dioxide and Water','Carbon Dioxide and Hydrogen','Carbon and Water', \
+                    'Propane and Carbon Dioxide','When hydrocarbon burns in air, Carbon Dioxide and water are formed. <br>2C<sub>3</sub>H<sub>6</sub> + 9O<sub>2</sub> &rarr; 6CO<sub>2</sub> + 6H<sub>2</sub>O',3),
+                
+                ('Pentene can be transformed to pentane by the process of...','Dehydration','Combustion','Fermentation','Esterification','Hydrogenation', 'Oxidation',\
+                    'Alkenes are turned into alkanes through hydrogenation.<br>Catalyst - Platinum, Nickel or Palladium<br>Temperature - 180&deg;C<br><br><img src="/static/img/hydrogenationequation.jpg">',5),
+
+                ('Which of the following is a saturated hydrocarbon?','Propanoic acid','Methanol','Butyl Ethanoate','Butene','Ethene', 'Hexane',\
+                    'Hydrocarbons are compounds that consist of H (Hydrogen) and C (Carbon) atoms only. Only alkanes and alkenes are hydrocarbons. \
+                    Saturated hydrocarbons mean that there are only C-C single bonds and no C=C double bonds. Only alkanes are saturated hydrocarbons.', 6),
+
+                ('Which of this is true for alkenes?','Alkenes undergo substitution reaction with halogens','Alkenes produces less soot during combustion', \
+                    'When alkene is mixed with bromine water and shaked well, it will decolourise the bromine water','Alkenes only have C-C single bonds', \
+                    'Alkenes cannot be transformed into alcohols','Alkenes does not react with cold acidified potassium manganate (VII) solution',\
+                    'All of the above answers are false except for the bromine test. This test is used to differentiate alkanes from alkenes. Alkanes do not decolourise bromine water. <i>(Remember that!)</i>',3)]
 
 alcohol_quiz = ['1','2']
 
 carboxylic_quiz = ['1','2']
 
-ester_quiz = ['1','2']
+ester_quiz = [('What is the name of the ester formed from the reaction of butanol and ethanoic acid?', 'Ethyl Butanoate','Butanoate Ethyl','Butyl Ethanoate',\
+                    'Ethanoate Butyl','Methyl Ethanoate','Butyl Methanoate','The name of the alcohol comes (Butyl) first followed by the carboxylic acid (Ethanoate) in an ester name.',3),
+            
+            ('What is the name of the following molecule?<br><br><img src="/static/img/propyl-ethanoate.jpg" height="150px">','Ethyl Propanoate','Methyl Propanoate',\
+                'Methyl Butanoate','Propyl Ethanoate','Propyl Methanoate','Butyl Methanoate','Name the alcohol part first (the right side of the structure in this case) - Propyl, followed by te carboxylic acid part - Ethanoate',4)]
+
+moral_quiz = [('NILAI: Kepercayaan kepada Tuhan<br>DEFINISI: __________ sebagai pencipta alam dan __________ berlandaskan pegangan agama masing-masing selaras dengan prinsip rukun negara.','keyakinan wujudnya tuhan','mematuhi segala suruhannya',\
+                    'NILAI: Kepercayaan kepada Tuhan<br>DEFINISI: <span class="orange">Keyakinan wujudnya Tuhan</span> sebagai pencipta alam dan <span class="orange">mematuhi segala suruhannya</span> berlandaskan pegangan agama masing-masing selaras dengan prinsip rukun negara'),
+            
+            ('NILAI: Amanah<br>DEFINISI: __________ yang boleh menimbulkan __________ orang lain','sikap bertanggungjawab','kepercayaan dan keyakinan','NILAI: Amanah<br>DEFINISI: <span class="orange">Sikap bertanggungjawab</span> yang boleh menimbulkan <span class="orange">kepercayaan dan keyakinan</span> orang lain'),
+
+            ('NILAI: Harga Diri<br>DEFINISI: Keupayaan dan keyakinan diri agar mampu __________ dan __________ maruah diri dalam kehidupan','memulia','menjaga',\
+                'NILAI: Harga Diri<br>DEFINISI: Keupayaan dan keyakinan diri agar mampu <span class="orange">memulia</span> dan <span class="orange">menjaga</span> maruah diri dalam kehidupan'),
+
+            ('NILAI: Bertanggungjawab<br>DEFINISI: Kesanggupan diri seseorang untuk __________ dan __________ tugas serta kewajipan dengan sempurna','memikul','melaksanakan',\
+                'NILAI: Bertanggungjawab<br>DEFINISI: Kesanggupan diri seseorang untuk <span class="orange">memikul dan melaksanakan</span> tugas serta kewajipan dengan sempurna'),
+
+            ('NILAI: Hemah Tinggi<br>DEFINISI: __________ dan __________ dalam pergaulan seharian','beradab sopan','berbudi pekerti mulia', \
+                'NILAI: Hemah Tinggi<br>DEFINISI: <span class="orange">Beradab sopan dan berbudi pekerti mulia</span> dalam pergaulan seharian'),
+
+            ('NILAI: Toleransi<br>DEFINISI: Kesanggupan __________, __________ dan mengawal diri bagi mengelakkan berlakunya pertelingkahan dan perselisihan faham demi kesejahteraan hidup', 'bertolak ansur','sabar',\
+                'NILAI: Toleransi<br>DEFINISI: Kesanggupan <span class="orange">bertolak ansur, sabar</span> dan mengawal diri bagi mengelakkan berlakunya pertelingkahan dan perselisihan faham demi kesejahteraan hidup'),
+
+            ('NILAI: Berdikari<br>DEFINISI: Kebolehan dan kesanggupan __________ kepada __________','melakukan sesuatu tanpa bergantung','orang lain',\
+                'NILAI: Berdikari<br>DEFINISI: Kebolehan dan kesanggupan <span class="orange">melakukan sesuatu tanpa bergantung kepada orang lain</span>'),
+
+            ('NILAI: Kerajinan<br>DEFINISI: __________ penuh dengan semangat ketekunan, kecekalan, kegigihan, dedikasi dan __________ dalam melakukan sesuatu perkara','Usaha yang berterusan','berdaya maju',\
+                'NILAI: Kerajinan<br>DEFINISI: <span class="orange">Usaha yang berterusan</span> penuh dengan semangat ketekunan, kecekalan, kegigihan, dedikasi dan <span class="orange">berdaya maju</span> dalam melakukan sesuatu perkara'),
+
+            ('NILAI: Kasih Sayang<br>DEFINISI: Kepekaan dan __________ yang mendalam serta berkekalan yang lahir daripada __________','perasaan cinta','hati yang ikhlas',\
+                'NILAI: Kasih Sayang<br>DEFINISI: Kepekaan dan <span class="orange">perasaan cinta</span> yang mendalam serta <span class="orange">berkekalan</span> yang lahir daripada <span class="orange">hati yang ikhlas</span>'),
+
+            ('NILAI: Keadilan<br>DEFINISI: Tindakan dan keputusan yang __________ serta __________','saksama','tidak berat sebelah',\
+                'NILAI: Keadilan<br>DEFINISI: Tindakan dan keputusan yang <span class="orange">saksama serta tidak berat sebelah</span>'),
+
+            ('NILAI: Rasional<br>DEFINISI: __________ berdasarkan alasan dan bukti yang nyata dan mengambil tindakan berasaskan __________','boleh berfikir','pertimbangan yang wajar',\
+                'NILAI: Rasional<br>DEFINISI: <span class="orange">Boleh berfikir</span> berdasarkan alasan dan bukti yang nyata dan mengambil tindakan berasaskan <span class="orange">pertimbangan yang wajar</span>'),
+
+            ('NILAI: Kesederhanaan<br>DEFINISI: Bersikap __________ dalam membuat pertimbangan dan tindakan sana ada dalam pemikiran, pertuturan atau perlakuan tanpa __________','tidak keterlaluan','mengabaikan kepentingan diri dan orang lain',\
+                'NILAI: Kesederhanaan<br>DEFINISI: Bersikap <span class="orange">tidak keterlaluan</span> dalam membuat pertimbangan dan tindakan sana ada dalam pemikiran, pertuturan atau perlakuan tanpa <span class="orange">mengabaikan kepentingan diri dan orang lain</span>'),
+
+            ('NILAI: Kasih Sayang terhadap Keluarga<br>DEFINISI: __________ yang mendalam dan __________ terhadap keluarga','perasaan cinta, kasih dan sayang','berkekalan',\
+                'NILAI: Kasih Sayang terhadap Keluarga<br>DEFINISI: <span class="orange">Perasaan cinta, kasih dan sayang</span> yang mendalam dan <span class="orange">berkekalan</span> terhadap keluarga'),
+
+            ('NILAI: Hormat dan Taat kepada Anggota Keluarga<br>DEFINISI: __________ dengan berinteraksi dan memberi __________ untuk mewujudkan keluarga yang bahagia','memuliakan setiap anggota keluarga','layanan secara bersopan',\
+                'NILAI: Hormat dan Taat kepada Anggota Keluarga<br>DEFINISI: <span class="orange">Memuliakan setiap anggota keluarga</span> dengan berinteraksi dan memberi <span class="orange">layanan secara bersopan</span> untuk mewujudkan keluarga yang bahagia'),
+
+            ('NILAI: Mengekalkan Tradisi Kekeluargaan<br>DEFINISI: Menerima, __________, __________ dan kepercayaan yang diwarisi secara turun temurun dalam keluarga','menghormati','mengamalkan adat',\
+                'NILAI: Mengekalkan Tradisi Kekeluargaan<br>DEFINISI: <span class="orange">Menerima, menghormati, mengamalkan adat</span> dan kepercayaan yang diwarisi secara turun temurun dalam keluarga'),
+
+            ('NILAI: Tanggungjawab terhadap Keluarga<br>DEFINISI: Kewajipan yang harus dilaksanakan oleh setiap individu terhadap keluarga untuk melahirkan keluarga bahagia, __________ dan __________','meningkatkan imej','menjaga maruah keluarga',\
+                'NILAI: Tanggungjawab terhadap Keluarga<br>DEFINISI: <span class="orange">Kewajipan</span> yang harus dilaksanakan oleh setiap individu terhadap keluarga untuk melahirkan keluarga bahagia, <span class="orange">meningkatkan imej</span> dan <span class="orange">menjaga maruah keluarga</span>'),
+            
+            ('NILAI: Menyayangi dan Menghargai Alam Sekitar<br>DEFINISI: Kesedaran tentang perlunya __________ dan __________ alam sekeliling untuk mengekalkan keseimbangan ekosistem','memelihara','memulihara',\
+                'NILAI: Menyayangi dan Menghargai Alam Sekitar<br>DEFINISI: Kesedaran tentang perlunya <span class="orange">memelihara</span> dan <span class="orange">memulihara</span> alam sekeliling untuk mengekalkan keseimbangan ekosistem'),
+
+            ('NILAI: Keharmonian antara Manusia dengan Alam Sekitar<br>DEFINISI: Keadaan __________ hubungan yang harmonis antara manusia dengan alam sekeliling supaya __________','saling memerlukan','kualiti kehidupan manusia dan alam sekeliling terpelihara',\
+                'NILAI: Keharmonian antara Manusia dengan Alam Sekitar<br>DEFINISI: Keadaan <span class="orange">saling memerlukan</span> hubungan yang harmonis antara manusia dengan alam sekeliling supaya <span class="orange">kualiti kehidupan manusia dan alam sekeliling terpelihara</span>'),
+
+            ('NILAI: Kemapanan Alam Sekitar<br>DEFINISI: __________ alam sekeliling sebagai __________ untuk kesejahteraan hidup','pengekalan keseimbangan','tanggungjawab bersama',\
+                'NILAI: Kemapanan Alam Sekitar<br>DEFINISI: <span class="orange">Pengekalan keseimbangan</span> alam sekeliling sebagai <span class="orange">tanggungjawab bersama</span> untuk kesejahteraan hidup'),
+
+            ('NILAI: Peka terhadap Isu-isu Alam Sekitar<br>DEFINISI: __________ terhadap persoalan yang berkaitan dengan alam sekeliling dan __________','prihatin','berusaha menyelesaikannya',\
+                'NILAI: Peka terhadap Isu-isu Alam Sekitar<br>DEFINISI: <span class="orange">Prihatin</span> terhadap persoalan yang berkaitan dengan alam sekeliling dan <span class="orange">berusaha menyelesaikannya</span>'),
+
+            ('NILAI: Cinta akan Negara<br>DEFINISI: __________ kepada negara serta __________','perasaan sayang dan bangga','meletakkan kepentingan negara melebihi kepentingan diri',\
+                'NILAI: Cinta akan Negara<br>DEFINISI: <span class="orange">Perasaan sayang dan bangga</span> kepada negara serta <span class="orange">meletakkan kepentingan negara melebihi kepentingan diri</span>'),
+
+            ('NILAI: Taat Setia kepada Raja dan Negara<br>DEFINISI: __________ dan __________ kepada raja dan Negara','kepatuhan','kesetiaan',\
+                'NILAI: Taat Setia kepada Raja dan Negara<br>DEFINISI: <span class="orange">Kepatuhan dan kesetiaan</span> kepada raja dan Negara'),
+
+            ('NILAI: Sanggup Berkorban untuk Negara<br>DEFINISI: __________ melakukan atau menyerahkan sesuatu sebagai __________ untuk negara','kerelaan','tanda berbakti',\
+                'NILAI: Sanggup Berkorban untuk Negara<br>DEFINISI: <span class="orange">Kerelaan</span> melakukan atau menyerahkan sesuatu sebagai <span class="orange">tanda berbakti</span> untuk negara'),
+
+            ('NILAI: Melindungi Hak Kanak-kanak<br>DEFINISI: __________, memberi naungan dan __________ hak kanak-kanak bagi menjamin kehidupan meraka yang sempurna','membela','memelihara',\
+                'NILAI: Melindungi Hak Kanak-kanak<br>DEFINISI: <span class="orange">Membela, memberi naungan</span> dan <span class="orange">memelihara</span> hak kanak-kanak bagi menjamin kehidupan meraka yang sempurna'),
+
+            ('NILAI: Menghormati Hak Wanita<br>DEFINISI: __________ dan __________ sebagai individu yang boleh memberi sumbangan dalam pembangunan keluarga,masyarakat dan negara','melindungi','mengiktiraf wanita',\
+                'NILAI: Menghormati Hak Wanita<br>DEFINISI: <span class="orange">Melindungi dan mengiktiraf wanita</span> sebagai individu yang boleh memberi sumbangan dalam pembangunan keluarga,masyarakat dan negara'),
+
+            ('NILAI: Melindungi Hak Pekerja<br>DEFINISI: Menghormati, menghargai dan __________ jasa dan sumbangan golongan pekerja dalam pembangunan negara','menghargai','mengiktiraf perkhidmatan',\
+                'NILAI: Melindungi Hak Pekerja<br>DEFINISI: <span class="orange">Menghormati, menghargai dan mengiktiraf perkhidmatan</span> jasa dan sumbangan golongan pekerja dalam pembangunan negara'),
+
+            ('NILAI: Menghormati Hak Golongan Kurang Berupaya<br>DEFINISI: __________ kepada golongan kurang berupaya supaya tidak berasa tersisih dan __________','memberi layanan yang sopan','mengiktiraf mereka sebagai insan ciptaan tuhan',\
+                'NILAI: Menghormati Hak Golongan Kurang Berupaya<br>DEFINISI: <span class="orange">Memberi layanan yang sopan</span> kepada golongan kurang berupaya supaya tidak berasa tersisih dan <span class="orange">mengiktiraf mereka sebagai insan ciptaan tuhan</span>'),
+
+            ('NILAI: Melindungi Hak Pengguna<br>DEFINISI: __________ dan __________ hak individu untuk menjadi pengguna yang berilmu, mendapat perkhidmatan serta barangan yang berkualiti dan tidak mudah dieksploitasi','membela','memelihara',\
+                'NILAI: Melindungi Hak Pengguna<br>DEFINISI: <span class="orange">Membela dan memelihara</span> hak individu untuk menjadi pengguna yang berilmu, mendapat perkhidmatan serta barangan yang berkualiti dan tidak mudah dieksploitasi'),
+
+            ('NILAI: Mematuhi Peraturan dan Undang-undang<br>DEFINISI: __________ peraturan dan undang-undang yang telah ditentukan __________ seseorang itu berada','menerima dan mematuhi','tanpa mengira sesiapa dan di mana',\
+                'NILAI: Mematuhi Peraturan dan Undang-undang<br>DEFINISI: <span class="orange">Menerima dan mematuhi</span> peraturan dan undang-undang yang telah ditentukan <span class="orange">tanpa mengira sesiapa dan di mana</span> seseorang itu berada'),
+
+            ('NILAI: Kebebasan Bersuara<br>DEFINISI: __________ dan mengeluarkan buah fikiran dengan batasan tertentu bagi __________','kebebasan berucap','menjaga keselamatan dan ketenteraman',\
+                'NILAI: Kebebasan Bersuara<br>DEFINISI: <span class="orange">Kebebasan berucap</span> dan mengeluarkan buah fikiran dengan batasan tertentu bagi <span class="orange">menjaga keselamatan dan ketenteraman</span>'),
+
+            ('NILAI: Kebebasan Beragama<br>DEFINISI: __________ dan __________ agamanya seperti yang diperuntukkan dalam perlembagaan Malaysia','kebebasan setiap individu menganuti','mengamalkan',\
+                'NILAI: Kebebasan Beragama<br>DEFINISI: <span class="orange">Kebebasan setiap individu menganuti dan mengamalkan</span> agamanya seperti yang diperuntukkan dalam perlembagaan Malaysia'),
+
+            ('NILAI: Penglibatan Diri dalam Pembangunan Negara<br>DEFINISI: __________ dalam pelbagai aktiviti __________ dengan mematuhi peraturan,undang-undang dan perlembagaan Malaysia','kebebasan untuk melibatkan diri','pembangunan negara',\
+                'NILAI: Penglibatan Diri dalam Pembangunan Negara<br>DEFINISI: <span class="orange">Kebebasan untuk melibatkan diri</span> dalam pelbagai aktiviti <span class="orange">pembangunan negara</span> dengan mematuhi peraturan,undang-undang dan perlembagaan Malaysia'),
+
+            ('NILAI: Sikap Keterbukaan<br>DEFINISI: __________ dan __________, pembaharuan dan kritikan selaras dengan kebenaran fakta dan norma masyarakat Malaysia','bersedia memberi','menerima pandangan',\
+                'NILAI: Sikap Keterbukaan<br>DEFINISI: <span class="orange">Bersedia memberi dan menerima</span> pandangan, pembaharuan dan kritikan selaras dengan kebenaran fakta dan norma masyarakat Malaysia'),
+
+            ('NILAI: Hidup Bersama secara Aman<br>DEFINISI: __________ antara satu sama lain dengan __________ hidup tanpa mengira agama, bangsa dan budaya','hidup berbaik-baik','mengutamakan kedamaian dan keharmonian',\
+                'NILAI: Hidup Bersama secara Aman<br>DEFINISI: <span class="orange">Hidup berbaik-baik</span> antara satu sama lain dengan <span class="orange">mengutamakan kedamaian dan keharmonian</span> hidup tanpa mengira agama, bangsa dan budaya'),
+
+            ('NILAI: Saling Membantu dan Bekerjasama<br>DEFINISI: __________ dan membina yang __________ pada peringkat individu, komuniti dan Negara untuk mencapai sesuatu matlamat','usaha yang baik','dilakukan bersama',\
+                'NILAI: Saling Membantu dan Bekerjasama<br>DEFINISI: <span class="orange">Usaha yang baik</span> dan membina yang <span class="orange">dilakukan bersama</span> pada peringkat individu, komuniti dan Negara untuk mencapai sesuatu matlamat'),
+
+            ('NILAI: Saling Menghormati antara Negara<br>DEFINISI: __________ hubungan antara Negara untuk menjamin __________','menghargai dan memuliakan','kesejahteraan sejagat',\
+                'NILAI: Saling Menghormati antara Negara<br>DEFINISI: <span class="orange">Menghargai dan memuliakan</span> hubungan antara Negara untuk menjamin <span class="orange">kesejahteraan sejagat</span>')]
 
 ##### Main Page #####
 
@@ -201,57 +334,6 @@ class PlaylistHandler(PageHandler):
         
                 
 
-##### Quizzes Page #####
-
-class QuizHandler(PageHandler):
-    def get(self, id):
-        tuple_id = int(id)-1
-        self.render('quiz.html', quiz = quiz, id=tuple_id, playlist=addmaths_f4)       
-
-
-    def post(self, id):
-        
-        answer = self.request.get("quiz%s" %id)                     #get answer from form in 1,2,3,4 type
-
-        if answer == '':                                            #form validation if no answer is selected
-            self.write("Please click the Back button and select an answer.")
-            return
-
-        id = int(id)                                                #makes the id given in url an integer
-        tuple_id = int(id) - 1                                      #refer to the id on the quiz tuple
-        right_answer = "You got it right."
-        wrong_answer = "You got it wrong."
-        correct_answer = quiz[tuple_id][1 + quiz[tuple_id][-1]]     #print the correct answer in value type eg David Cameron
-        given_answer = quiz[tuple_id][1 + int(answer)]              #print the answer given in value type eg Margaret Thatcher 
-        explanation = quiz[tuple_id][-2]
-
-
-        signup_button = """
-                        <br><b><em>Congratulations on reaching this far in your learning. 
-                        <br>We are working hard to build TuitionX. Kindly sign-up to our mailing list to keep updated.</em></b><br><br>
-                        <a href = "/home" class="btn btn-primary btn-large">Sign Up Now &raquo;</a>
-                        """  
-
-        next_button = '<div class="playlist-button"><a href="/quiz/%s" class="btn btn-primary btn-large">Next Question &raquo;</a></div>' % str(id+1)                                    
-
-        #signup_button and next_button SHOULD NOT be in this python/controller file --> it should be in the TEMPLATE/view/quiz.html file
-        #signup_button and next_button is here for temporary convenience sake                  
-
-
-
-        if int(answer) == quiz[tuple_id][-1]:                       #checks submitted answer with correct answer in tuple list
-            if id+1 <= len(quiz):                                   #checks to see if this is the last question
-                self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = right_answer, explanation = explanation, nextquestion = next_button, playlist = addmaths_f4)
-            else:
-                self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = right_answer, explanation = explanation, nextquestion = signup_button, playlist = addmaths_f4)
-        else:                                                       #if wrong answer
-            if id+1 <= len(quiz):                                   #if wrong answer and last question                
-                self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = wrong_answer, explanation = explanation, nextquestion = next_button, playlist = addmaths_f4)
-            else:
-                self.render("answer.html", quiz = quiz, correct_answer = correct_answer, given_answer = given_answer, tuple_id = tuple_id, solution = wrong_answer, explanation = explanation, nextquestion = signup_button, playlist = addmaths_f4)
-
-
-
 
 
 ##### Learn Page #####
@@ -309,10 +391,14 @@ alkene = ['Alkenes have the general formula C<sub>n</sub>H<sub>2n</sub>.<br><br>
         
         'Examples of Alkenes:<br><br>Ethene &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://upload.wikimedia.org/wikipedia/commons/8/8d/Ethene-2D-flat.png" height="150px"> \
             <br><br> Propene <img src="http://www.chemeddl.org/resources/models360/files/8252/propene-lewis2.png" height="150px">',
+        
+        0,
 
         'Preparation of Alkenes: <br><br> Catalyst - strong acid catalyst <br>(concentrated Sulphuric Acid - H<sub>2</sub>SO<sub>4</sub> or \
             Phosphoric Acid - H<sub>3</sub>PO<sub>4</sub>) <br>Dehydration of Alcohol produces Alkene and Water <br><br>\
             <img src="/static/img/dehydration.jpg">',
+
+        1,
 
         'Physical properties of alkenes:<br><h3><ul><li>Boiling point increases with number of Carbon atoms</li><li>Insoluble in water</li> \
             <li>Soluble in organic solvents</li><li>Burn in air forming CO2 and water</li></ul></h3>',
@@ -320,7 +406,7 @@ alkene = ['Alkenes have the general formula C<sub>n</sub>H<sub>2n</sub>.<br><br>
         'Chemical properties of alkenes:<br><h3><ul><li>Undergo addition reaction with hydrogen, halogens, steam, acidified \
             potassium manganate (VII) solution</li><li>Form polymers under polymerisation process</li></ul></h3>',
 
-        'Hydrogenation:<br><br>Catalyst - Platinum, Nickel or palladium<br>Temperature - 180&deg;C<br><br><img src="http://www.chemistryrules.me.uk/middle/hydrogenationequation.gif">',
+        'Hydrogenation:<br><br>Catalyst - Platinum, Nickel or Palladium<br>Temperature - 180&deg;C<br><br><img src="http://www.chemistryrules.me.uk/middle/hydrogenationequation.gif">',
 
         'Hydration:<br><br>Catalyst - Concentrated Phosphoric Acid, H<sub>3</sub>PO<sub>4</sub><br>Temperature - 300&deg;C<br>\
             Pressure - 60atm<br><br><img src="/static/img/hydrogenation.jpg">',
@@ -329,6 +415,9 @@ alkene = ['Alkenes have the general formula C<sub>n</sub>H<sub>2n</sub>.<br><br>
 
         'Reaction with cold acidified potassium manganate (VII) solution to form diols:<br>(Purple solution is decolourised)<br><br>\
             CH<sub>2</sub>=CH-CH<sub>3</sub> + [O] + H<sub>2</sub>O -> CH<sub>2</sub>(OH)-CH(OH)CH<sub>3</sub>',
+
+        2,
+        3,
 
         'Polymerisation:<br><br><h3><ul><li>Process where thousands of simple molecules (monomers) combine to form giant long-chain molecules (polymers)\
             </li><li>Alkene monomers form polymers at high temperatures</li><li>nCH2=CH2 -->(-CH2-CH2-)n</li></ul></h3><br>Natural polymers:<br>\
@@ -341,10 +430,12 @@ alkene = ['Alkenes have the general formula C<sub>n</sub>H<sub>2n</sub>.<br><br>
             combustion</li><li>This is because the percentage content of Carbon in unsaturated hydrocarbon is higher</li></ul></h3><br>Chemical test:<h3><ul><li>Add drops of bromine water \
             to both alkane and alkene compounds</li><li>Shake well</li><li>Alkane will not decolourise bromine water</li>\
             <li>Alkene will change bromine water to colourless</li></ul></h3>',
+        4,
+        5,    
 
         'Isomerism<br><br>Isomers are molecules with same molecular formula but different structural formula.<br><br>\
-        All of the following molecules have the same molecular formula, C<sub>5</sub>H<sub>12</sub> but different \
-        structural formula.<br><br><img src="/static/img/pentaneisomers.jpg">']
+            All of the following molecules have the same molecular formula, C<sub>5</sub>H<sub>12</sub> but different \
+            structural formula.<br><br><img src="/static/img/pentaneisomers.jpg">']
 
 
 alcohol = ['Alcohols have the general formula C<sub>n</sub>H<sub>2n+1</sub>OH<br><br>Alcohols have the functional group -OH \
@@ -377,25 +468,103 @@ carboxylic = ['Carboxylic acids have the general formula C<sub>n</sub>H<sub>2n+1
                 CH<sub>3</sub>CH<sub>2</sub>OH + 2[O] &rarr; CH<sub>3</sub>COOH + H<sub>2</sub><br><br>',
 
             'Properties of Carboxylic Acids:<br><br><h3><ul><li>Higher boiling points than alcohols due to dimer formation \
-            through hydrogen bonding <br><br><img src="http://upload.wikimedia.org/wikipedia/commons/c/c9/Carboxylic_acid_dimers.png" height="150px"> \
-            </li><br><li>Carboxylic acids with up to 4 Carbon atoms are miscible in water due to \
-            hydrogen bonding</li><li>Weak acids - dissociate to produce hydroxonium ions and carboxylate ions</li><li>\
-            Neutralised by alkalis to form salts</li><li>React with zinc or magnesium metal forming hydrogen gas\
-            <br>2CH<sub>3</sub>COOH + Mg &rarr; (CH<sub>3</sub>COO)<sub>2</sub>Mg + H<sub>2</sub></li><br><li>\
-            React with marble chips forming CO<sub>2</sub> gas<br>2CH<sub>3</sub>COOH + CaCO<sub>3</sub> &rarr; \
-            (CH<sub>3</sub>COOH)<sub>2</sub>Ca + CO<sub>2</sub> + H<sub>2</sub>O</li><br><li>Undergo esterification when heated together with \
-            alcohols and concentrated H<sub>2</sub>SO<sub>4</sub> under reflux</li></ul></h3>']
+                through hydrogen bonding <br><br><img src="http://upload.wikimedia.org/wikipedia/commons/c/c9/Carboxylic_acid_dimers.png" height="150px"> \
+                </li><br><li>Carboxylic acids with up to 4 Carbon atoms are miscible in water due to \
+                hydrogen bonding</li><li>Weak acids - dissociate to produce hydroxonium ions and carboxylate ions</li><li>\
+                Neutralised by alkalis to form salts</li><li>React with zinc or magnesium metal forming hydrogen gas\
+                <br>2CH<sub>3</sub>COOH + Mg &rarr; (CH<sub>3</sub>COO)<sub>2</sub>Mg + H<sub>2</sub></li><br><li>\
+                React with marble chips forming CO<sub>2</sub> gas<br>2CH<sub>3</sub>COOH + CaCO<sub>3</sub> &rarr; \
+                (CH<sub>3</sub>COOH)<sub>2</sub>Ca + CO<sub>2</sub> + H<sub>2</sub>O</li><br><li>Undergo esterification when heated together with \
+                alcohols and concentrated H<sub>2</sub>SO<sub>4</sub> under reflux</li></ul></h3>']
 
 ester = ['Mixture of Carboxylic acids and Alcohols undergo esterification when heated together under reflux with concentrated H<sub>2</sub>SO<sub>4</sub>\
             <br><br>Heating under reflux is used for reactions involving alcohols because of their low boiling points to prevent easy evaporation \
             <br><br>Butanoic Acid + Propanol &rarr; Propyl Butanoate<br>Propanoic Acid + Ethanol &rarr; Ethyl Propanoate<br>Ethanoic Acid + Methanol &rarr; Methyl ethanoate \
             <br><br><i><h3>Remember the name of the alcohol comes first in an ester name.</h3></i>',
 
+        0,
+        1,
+
         'Properties of esters:<br><br><h3><ul><li>Sweet, fruity smell</li><li>Less dense than water</li><li>Immiscible with water</li><ul></h3>']
 
 
+
+moral = ['NILAI: Kepercayaan kepada Tuhan<br>DEFINISI: <span class="red">Keyakinan wujudnya Tuhan</span> sebagai pencipta alam dan <span class="red">mematuhi segala suruhannya</span> berlandaskan pegangan agama masing-masing selaras dengan prinsip rukun negara.',
+
+        'NILAI: Amanah<br>DEFINISI: <span class="red">Sikap bertanggungjawab</span> yang boleh menimbulkan <span class="red">kepercayaan dan keyakinan</span> orang lain',
+
+        'NILAI: Harga Diri<br>DEFINISI: Keupayaan dan keyakinan diri agar mampu <span class="red">memulia</span> dan <span class="red">menjaga</span> maruah diri dalam kehidupan',
+
+        'NILAI: Bertanggungjawab<br>DEFINISI: Kesanggupan diri seseorang untuk <span class="red">memikul dan melaksanakan</span> tugas serta kewajipan dengan sempurna',
+
+        'NILAI: Hemah Tinggi<br>DEFINISI: <span class="red">Beradab sopan dan berbudi pekerti mulia</span> dalam pergaulan seharian',
+
+        'NILAI: Toleransi<br>DEFINISI: Kesanggupan <span class="red">bertolak ansur, sabar</span> dan mengawal diri bagi mengelakkan berlakunya pertelingkahan dan perselisihan faham demi kesejahteraan hidup',
+
+        'NILAI: Berdikari<br>DEFINISI: Kebolehan dan kesanggupan <span class="red">melakukan sesuatu tanpa bergantung kepada orang lain</span>',
+
+        'NILAI: Kerajinan<br>DEFINISI: <span class="red">Usaha yang berterusan</span> penuh dengan semangat ketekunan, kecekalan, kegigihan, dedikasi dan <span class="red">berdaya maju</span> dalam melakukan sesuatu perkara',
+
+        'NILAI: Kasih Sayang<br>DEFINISI: Kepekaan dan <span class="red">perasaan cinta</span> yang mendalam serta <span class="red">berkekalan</span> yang lahir daripada <span class="red">hati yang ikhlas</span>',
+
+        'NILAI: Keadilan<br>DEFINISI: Tindakan dan keputusan yang <span class="red">saksama serta tidak berat sebelah</span>',
+
+        'NILAI: Rasional<br>DEFINISI: <span class="red">Boleh berfikir</span> berdasarkan alasan dan bukti yang nyata dan mengambil tindakan berasaskan <span class="red">pertimbangan yang wajar</span>',
+
+        'NILAI: Kesederhanaan<br>DEFINISI: Bersikap <span class="red">tidak keterlaluan</span> dalam membuat pertimbangan dan tindakan sana ada dalam pemikiran, pertuturan atau perlakuan tanpa <span class="red">mengabaikan kepentingan diri dan orang lain</span>',
+
+        'NILAI: Kasih Sayang terhadap Keluarga<br>DEFINISI: <span class="red">Perasaan cinta, kasih dan sayang</span> yang mendalam dan <span class="red">berkekalan</span> terhadap keluarga',
+
+        'NILAI: Hormat dan Taat kepada Anggota Keluarga<br>DEFINISI: <span class="red">Memuliakan setiap anggota keluarga</span> dengan berinteraksi dan memberi <span class="red">layanan secara bersopan</span> untuk mewujudkan keluarga yang bahagia',
+
+        'NILAI: Mengekalkan Tradisi Kekeluargaan<br>DEFINISI: <span class="red">Menerima, menghormati, mengamalkan adat</span> dan kepercayaan yang diwarisi secara turun temurun dalam keluarga',
+
+        'NILAI: Tanggungjawab terhadap Keluarga<br>DEFINISI: <span class="red">Kewajipan</span> yang harus dilaksanakan oleh setiap individu terhadap keluarga untuk melahirkan keluarga bahagia, <span class="red">meningkatkan imej</span> dan <span class="red">menjaga maruah keluarga</span>',
+
+        'NILAI: Menyayangi dan Menghargai Alam Sekitar<br>DEFINISI: Kesedaran tentang perlunya <span class="red">memelihara</span> dan <span class="red">memulihara</span> alam sekeliling untuk mengekalkan keseimbangan ekosistem',
+
+        'NILAI: Keharmonian antara Manusia dengan Alam Sekitar<br>DEFINISI: Keadaan <span class="red">saling memerlukan</span> hubungan yang harmonis antara manusia dengan alam sekeliling supaya <span class="red">kualiti kehidupan manusia dan alam sekeliling terpelihara</span>',
+
+        'NILAI: Kemapanan Alam Sekitar<br>DEFINISI: <span class="red">Pengekalan keseimbangan</span> alam sekeliling sebagai <span class="red">tanggungjawab bersama</span> untuk kesejahteraan hidup',
+
+        'NILAI: Peka terhadap Isu-isu Alam Sekitar<br>DEFINISI: <span class="red">Prihatin</span> terhadap persoalan yang berkaitan dengan alam sekeliling dan <span class="red">berusaha menyelesaikannya</span>',
+
+        'NILAI: Cinta akan Negara<br>DEFINISI: <span class="red">Perasaan sayang dan bangga</span> kepada negara serta <span class="red">meletakkan kepentingan negara melebihi kepentingan diri</span>',
+
+        'NILAI: Taat Setia kepada Raja dan Negara<br>DEFINISI: <span class="red">Kepatuhan dan kesetiaan</span> kepada raja dan Negara',
+
+        'NILAI: Sanggup Berkorban untuk Negara<br>DEFINISI: <span class="red">Kerelaan</span> melakukan atau menyerahkan sesuatu sebagai <span class="red">tanda berbakti</span> untuk negara',
+
+        'NILAI: Melindungi Hak Kanak-kanak<br>DEFINISI: <span class="red">Membela, memberi naungan</span> dan <span class="red">memelihara</span> hak kanak-kanak bagi menjamin kehidupan meraka yang sempurna',
+
+        'NILAI: Menghormati Hak Wanita<br>DEFINISI: <span class="red">Melindungi dan mengiktiraf wanita</span> sebagai individu yang boleh memberi sumbangan dalam pembangunan keluarga,masyarakat dan negara',
+
+        'NILAI: Melindungi Hak Pekerja<br>DEFINISI: <span class="red">Menghormati, menghargai dan mengiktiraf perkhidmatan</span> jasa dan sumbangan golongan pekerja dalam pembangunan negara',
+
+        'NILAI: Menghormati Hak Golongan Kurang Berupaya<br>DEFINISI: <span class="red">Memberi layanan yang sopan</span> kepada golongan kurang berupaya supaya tidak berasa tersisih dan <span class="red">mengiktiraf mereka sebagai insan ciptaan tuhan</span>',
+
+        'NILAI: Melindungi Hak Pengguna<br>DEFINISI: <span class="red">Membela dan memelihara</span> hak individu untuk menjadi pengguna yang berilmu, mendapat perkhidmatan serta barangan yang berkualiti dan tidak mudah dieksploitasi',
+
+        'NILAI: Mematuhi Peraturan dan Undang-undang<br>DEFINISI: <span class="red">Menerima dan mematuhi</span> peraturan dan undang-undang yang telah ditentukan <span class="red">tanpa mengira sesiapa dan di mana</span> seseorang itu berada',
+
+        'NILAI: Kebebasan Bersuara<br>DEFINISI: <span class="red">Kebebasan berucap</span> dan mengeluarkan buah fikiran dengan batasan tertentu bagi <span class="red">menjaga keselamatan dan ketenteraman</span>',
+
+        'NILAI: Kebebasan Beragama<br>DEFINISI: <span class="red">Kebebasan setiap individu menganuti dan mengamalkan</span> agamanya seperti yang diperuntukkan dalam perlembagaan Malaysia',
+
+        'NILAI: Penglibatan Diri dalam Pembangunan Negara<br>DEFINISI: <span class="red">Kebebasan untuk melibatkan diri</span> dalam pelbagai aktiviti <span class="red">pembangunan negara</span> dengan mematuhi peraturan,undang-undang dan perlembagaan Malaysia',
+
+        'NILAI: Sikap Keterbukaan<br>DEFINISI: <span class="red">Bersedia memberi dan menerima</span> pandangan, pembaharuan dan kritikan selaras dengan kebenaran fakta dan norma masyarakat Malaysia',
+
+        'NILAI: Hidup Bersama secara Aman<br>DEFINISI: <span class="red">Hidup berbaik-baik</span> antara satu sama lain dengan <span class="red">mengutamakan kedamaian dan keharmonian</span> hidup tanpa mengira agama, bangsa dan budaya',
+
+        'NILAI: Saling Membantu dan Bekerjasama<br>DEFINISI: <span class="red">Usaha yang baik</span> dan membina yang <span class="red">dilakukan bersama</span> pada peringkat individu, komuniti dan Negara untuk mencapai sesuatu matlamat',
+
+        'NILAI: Saling Menghormati antara Negara<br>DEFINISI: <span class="red">Menghargai dan memuliakan</span> hubungan antara Negara untuk menjamin <span class="red">kesejahteraan sejagat</span>']
+
+
+
 chapter_dic = {1: ['Alkanes',alkane, alkane_quiz], 2: ['Alkenes',alkene, alkene_quiz], 3: ['Alcohols',alcohol, alcohol_quiz],
-               4: ['Carboxylic Acids',carboxylic, carboxylic_quiz], 5: ['Esters', ester, ester_quiz]}
+               4: ['Carboxylic Acids',carboxylic, carboxylic_quiz], 5: ['Esters', ester, ester_quiz],10: ['Pendidikan Moral', moral, moral_quiz]}
 
 
 class LearnHandler(PageHandler):
@@ -454,6 +623,53 @@ class LearnHandler(PageHandler):
             self.render('newanswer.html', solution = "wrong", quiz=quiz, id=quiz_id, next=learn_id+2, \
             given_answer = quiz[quiz_id][int(answer)], correct_answer = quiz[quiz_id][correct_answer_id], points = '+0', \
             title=title, totalpoints=str(points), chapter=chapter)
+
+
+
+
+
+##### Quizzes Page #####
+
+class QuizHandler(PageHandler):
+    def get(self, chapter, id):
+        quiz_id = int(id)-1
+        quiz = moral_quiz
+
+        points = self.request.cookies.get('points')
+        if points == None:
+            points = 0
+
+        if int(id) <= len(quiz):
+            self.render('quiz2.html', quiz=quiz, id=quiz_id, totalpoints=points) 
+        else:
+            self.render('endoflearn.html',totalpoints=points)  
+           
+
+
+    def post(self, chapter, id):
+        quiz_id = int(id)-1
+        quiz = moral_quiz
+
+        points = self.request.cookies.get('points')
+        if points == None:
+            points = 0
+
+        input1 = self.request.get("input1").lower()
+        input2 = self.request.get("input2").lower()
+        
+        if input1 == quiz[quiz_id][-3] and input2 == quiz[quiz_id][-2]:
+            points = int(points) + 50
+            self.response.headers.add_header('Set-Cookie', 'points=%s; Path=/' % str(points))
+
+            self.render('answer2.html', solution = "right", quiz=quiz, id=quiz_id, next=quiz_id+2, \
+            points = '+50', totalpoints=str(points), chapter=chapter)   
+
+        else:
+            self.response.headers.add_header('Set-Cookie', 'points=%s; Path=/' % str(points))
+
+            self.render('answer2.html', solution = "wrong", quiz=quiz, id=quiz_id, next=quiz_id+2, \
+            points = '+0', totalpoints=str(points), chapter=chapter)   
+
 
 
 
@@ -588,7 +804,7 @@ app = webapp2.WSGIApplication([('/', MainHandler),
                                ('/home', HomeHandler),
                                ('/about', AboutHandler),
                                ('/playlist', PlaylistHandler),
-                               ('/quiz/([0-9]+)', QuizHandler),
+                               ('/quiz/([0-9]+)/([0-9]+)', QuizHandler),
                                ('/learn/([0-9]+)/([0-9]+)', LearnHandler),
                                ('/submit', SubmitHandler),
                                ('/signup', SignUpHandler)],
