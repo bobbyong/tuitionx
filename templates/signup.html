@@ -6,24 +6,29 @@
 	<div class="row">
         
         <div class="span8">
-          <h2>Registration</h2>
-          <br><br>
+      
+          <h2>{{title}}</h2>
+          <br>
+          <span class="signup-error">{{login_error}}</span>
+          <br>
           <form method="post">
 
             <label>Email:</label>
             <input type="text" name="email" value=""> <span class="signup-error">{{error_email}}{{error_email_register}}</span>
-            
-            <br><br>
-            <label>Re-enter Email:</label>
-            <input type="text" name="verify" value=""> <span class="signup-error">{{error_verify}}</span>
-
+          
             <br><br>
             <label>Password:</label>
             <input type="password" name="password" value=""> <span class="signup-error">{{error_password}}</span>
+
+            <br><br>          
+            <input type="checkbox" name="remember" value="yes" checked> Remember me on this computer.
+  
                   
             <br><br>  
             <button type="submit" class="btn">Register</button>
           </form>
+
+          {{message | safe}}
 
         </div>
         
