@@ -119,7 +119,11 @@ alcohol = ['Alcohols have the general formula C<sub>n</sub>H<sub>2n+1</sub>OH<br
 
             'Oxidation of Primary Alcohols to Carboxylic Acids:<br>Mixture of alcohol, K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>, Potassium Dichromate (VI) and concentrated H<sub>2</sub>SO<sub>4</sub>, Sulphuric Acid heated under reflux<br>\
                 CH<sub>3</sub>CH<sub>2</sub>OH + 2[O] &rarr; CH<sub>3</sub>COOH + H<sub>2</sub><br><br><br>Dehydration of Primary Alcohols \
-                <br>Alcohol vapour passed over concentrated H<sub>2</sub>SO<sub>4</sub>/H<sub>3</sub>PO<sub>4</sub><br><br><img src="/static/img/dehydration.jpg">'        ]
+                <br>Alcohol vapour passed over concentrated H<sub>2</sub>SO<sub>4</sub>/H<sub>3</sub>PO<sub>4</sub><br><br><img src="/static/img/dehydration.jpg">',
+
+                0,
+
+                1]
 
 carboxylic = ['Carboxylic acids have the general formula C<sub>n</sub>H<sub>2n+1</sub>COOH<br><br>Carboxylic acids have the \
                 functional group -COOH<br><br>Ethanoic Acid (aka Acetic Acid)<br><img src="http://upload.wikimedia.org/wikipedia/commons/f/fd/Acetic-acid-2D-flat.png" height="150px">',
@@ -135,7 +139,9 @@ carboxylic = ['Carboxylic acids have the general formula C<sub>n</sub>H<sub>2n+1
                 <br>2CH<sub>3</sub>COOH + Mg &rarr; (CH<sub>3</sub>COO)<sub>2</sub>Mg + H<sub>2</sub></li><br><li>\
                 React with marble chips forming CO<sub>2</sub> gas<br>2CH<sub>3</sub>COOH + CaCO<sub>3</sub> &rarr; \
                 (CH<sub>3</sub>COOH)<sub>2</sub>Ca + CO<sub>2</sub> + H<sub>2</sub>O</li><br><li>Undergo esterification when heated together with \
-                alcohols and concentrated H<sub>2</sub>SO<sub>4</sub> under reflux</li></ul></h3>']
+                alcohols and concentrated H<sub>2</sub>SO<sub>4</sub> under reflux</li></ul></h3>',
+
+            0]
 
 ester = ['Mixture of Carboxylic acids and Alcohols undergo esterification when heated together under reflux with concentrated H<sub>2</sub>SO<sub>4</sub>\
             <br><br>Heating under reflux is used for reactions involving alcohols because of their low boiling points to prevent easy evaporation \
@@ -147,6 +153,17 @@ ester = ['Mixture of Carboxylic acids and Alcohols undergo esterification when h
 
         'Properties of esters:<br><br><h3><ul><li>Sweet, fruity smell</li><li>Less dense than water</li><li>Immiscible with water</li><ul></h3>']
 
+
+
+fats = ['Difference between Saturated and Unsaturated Fats<br><br><h3><ul><li>Saturated fats have only C-C single bonds</li><li>Unsaturated fats have at least one C=C double bonds</li><br>\
+            <li>Saturated fats have higher melting point</li><li>Unsaturated fats have lower melting point</li><br><li>Saturated fats are present in solid state</li><li>Unsaturated fats are present in liquid state</li><br>\
+            <li>Saturated fats are sourced from animals</li><li>Unsaturated fats are sourced from vegetables or plants</li><br><li>Saturated fats have high level of cholesterol</li><li>Unsaturated fats have \
+            low level of cholesterol</li><br><li>Saturated fats cannot have their hydrogen content increased because it is at a maximum</li><li>Unsaturated fats can have their hydrogen content increased because of the C=C double bonds - Unsaturated fats can undergo hydrogenation reaction</li><br>\
+            <li>Saturated fats are neatly arranged in compact form. There is a thus a stronger attractive force between fatty acid molecules.</li><li>Presence of C=C double bond makes the unsaturated fatty acids arranged loosely.\
+            Thus the attractive force between fatty acid molecules is smaller.</li></ul></h3>']
+
+rubber = ['Difference between Vulcanised and Unvulcanised Rubber<br><br><h3><ul><li>Vulcanised rubber can withstand high temperature</li><li>Unvulcanised rubber cannot withstand high temperature as it turns sticky</li><br>\
+            <li>Vulcanised rubber is more elastic</li><li>Unvulcanised rubber is less elastic</li><br><li>Vulcanised rubber is harder and stronger</li><li>Unvulcanised rubber is softer and weaker</li></ul></h3>']
 
 
 moral = ['NILAI: Kepercayaan kepada Tuhan<br>DEFINISI: <span class="red">Keyakinan wujudnya Tuhan</span> sebagai pencipta alam dan <span class="red">mematuhi segala suruhannya</span> berlandaskan pegangan agama masing-masing selaras dengan prinsip rukun negara.',

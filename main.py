@@ -18,6 +18,7 @@ import os
 import re
 import hashlib
 import random
+import ast
 import bcrypt
 
 import webapp2
@@ -60,6 +61,7 @@ class User(db.Model):
     email = db.StringProperty(required = True)
     password = db.StringProperty(required = True)
     joined = db.DateTimeProperty(auto_now_add = True)
+    count = db.IntegerProperty()
 
 class Signup(db.Model):
     email = db.StringProperty(required=True)     
@@ -79,6 +81,17 @@ class MainHandler(PageHandler):
     def get(self):
         user = self.request.cookies.get('user')
         if user:
+            """
+            count = 1
+
+            user_db = db.GqlQuery("SELECT * FROM User WHERE email = :1", user)
+            user = user_db.get()
+            count = int(user.count)
+            count+=1
+            u = User(count=count)
+            u.put() 
+            """
+
             self.render('home.html')
         else:
             self.render('main.html')
@@ -90,7 +103,9 @@ class MainHandler(PageHandler):
 ##### Learn Page #####
 
 chapter_dic = {1: ['Alkanes',alkane, alkane_quiz], 2: ['Alkenes',alkene, alkene_quiz], 3: ['Alcohols',alcohol, alcohol_quiz],
-               4: ['Carboxylic Acids',carboxylic, carboxylic_quiz], 5: ['Esters', ester, ester_quiz],10: ['Pendidikan Moral', moral, moral_quiz]}
+               4: ['Carboxylic Acids',carboxylic, carboxylic_quiz], 5: ['Esters', ester, ester_quiz], 6: ['Fats', fats, ''],
+               7: ['Natural Rubber', rubber, ''], 10: ['Pendidikan Moral', moral, moral_quiz], 
+               99: ['','',alcohol_quiz+carboxylic_quiz]}
 
 
 class LearnHandler(PageHandler):
@@ -150,29 +165,51 @@ class LearnHandler(PageHandler):
 
 ##### Quizzes Page #####
 
+def rand(exclude, length):
+    r = None
+    while r in exclude or r is None:
+         r = random.randrange(0, length)
+    return r
+
 class QuizHandler(PageHandler):
     def get(self, chapter, id):
-        quiz_id = int(id)-1
-        quiz = moral_quiz
+        quiz = chapter_dic[int(chapter)][2]
+        past_id = self.request.cookies.get('quiz_id')
         
+        if past_id:
+            past_id = past_id.split('|')
+            past_id = [int(i) for i in past_id]
+        else:
+            past_id = []
+
         points = self.request.cookies.get('points')
         if points == None:
             points = 0
 
-        if int(id) <= len(quiz):
-            self.render('quiz2.html', quiz=quiz, id=quiz_id, totalpoints=points) 
+        if len(past_id)+1 <= len(quiz):
+            quiz_id = rand(past_id, len(quiz))
+            past_id.append(quiz_id)
+            past_id = [str(i) for i in past_id]
+            past_id = '|'.join(past_id)
+            self.response.headers.add_header('Set-Cookie', 'quiz_id=%s; Path=/' % past_id)
+            self.render('quiz2.html', quiz=quiz, totalpoints=points, id=quiz_id) 
         else:
+            self.response.headers.add_header('Set-Cookie', 'quiz_id=%s; Path=/' % '')
             self.render('endoflearn.html',totalpoints=points)  
+        
 
     def post(self, chapter, id):
-        quiz_id = int(id)-1
-        quiz = moral_quiz
-        
+        quiz = chapter_dic[int(chapter)][2]
+        past_id = self.request.cookies.get('quiz_id')
+        past_id = past_id.split('|')
+        past_id = [int(i) for i in past_id]
+        quiz_id = past_id.pop()
         
         points = self.request.cookies.get('points')
         if points == None:
             points = 0
 
+        
         input1 = self.request.get("input1").lower()
         input2 = self.request.get("input2").lower()
         
@@ -181,13 +218,15 @@ class QuizHandler(PageHandler):
             self.response.headers.add_header('Set-Cookie', 'points=%s; Path=/' % str(points))
 
             self.render('answer2.html', solution = "right", quiz=quiz, id=quiz_id, next=quiz_id+2, \
-            points = '+50', totalpoints=str(points), chapter=chapter, previous=previous)   
+            points = '+50', totalpoints=str(points), chapter=chapter)   
 
         else:
             self.response.headers.add_header('Set-Cookie', 'points=%s; Path=/' % str(points))
 
             self.render('answer2.html', solution = "wrong", quiz=quiz, id=quiz_id, next=quiz_id+2, \
-            points = '+0', totalpoints=str(points), chapter=chapter, previous=previous)   
+            points = '+0', totalpoints=str(points), chapter=chapter)   
+
+        
 
 
 ##### SignUp Page #####

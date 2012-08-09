@@ -58,9 +58,16 @@ alkene_quiz = [('Which of the following is true for alkenes?','General formula: 
                     'Alkenes cannot be transformed into alcohols','Alkenes does not react with cold acidified potassium manganate (VII) solution',\
                     'All of the above answers are false except for the bromine test. This test is used to differentiate alkanes from alkenes. Alkanes do not decolourise bromine water. <i>(Remember that!)</i>',3)]
 
-alcohol_quiz = ['1','2']
+alcohol_quiz = [('Which of the following substances can undergo a dehydration reaction?','Ethanoic Acid','Ethanol','Ethane','Ethene','Ethyl ethanoate', 'Butane','Alcohols undergo dehydration reaction to form alkenes.<br><br>\
+                    Dehydration of Primary Alcohols <br>Alcohol vapour passed over concentrated H<sub>2</sub>SO<sub>4</sub>/H<sub>3</sub>PO<sub>4</sub><br><br><img src="/static/img/dehydration.jpg">',2),
 
-carboxylic_quiz = ['1','2']
+                ('Why can Butane, Butene and Butanol can be used as fuels?','They burn completely in excess oxygen to form carbon dioxide and water','They have 4 Carbon atoms per molecule','They are covalent compounds',\
+                    'They are ionic compounds','They release heat energy when they combust in air','They are hydrocarbons', 'Combustion is an exothermic reaction<br>Exothermic: a process or reaction that releases energy from \
+                    the system. In this case, butane, butene and butanol releases heat energy when undergoing combustion in air.',5)]
+
+carboxylic_quiz = [('An effervescence is produced when a liquid is reacted with sodium carbonate solution. What is the molecular formula of the liquid?','CH<sub>3</sub>COOH','C<sub>2</sub>H<sub>5</sub>COONa','C<sub>2</sub>H<sub>5</sub>COOCH<sub>3</sub>',\
+                    'C<sub>2</sub>H<sub>5</sub>OH','C<sub>3</sub>H<sub>7</sub>OH','C<sub>2</sub>H<sub>6</sub>','Carboxylic acids react with carbonates to form carbon dioxide gas.<br><br>\
+                    Ethanoic acid reacts with marble chips forming CO<sub>2</sub> gas<br>2CH<sub>3</sub>COOH + CaCO<sub>3</sub> &rarr; (CH<sub>3</sub>COOH)<sub>2</sub>Ca + CO<sub>2</sub> + H<sub>2</sub>O',1)]
 
 ester_quiz = [('What is the name of the ester formed from the reaction of butanol and ethanoic acid?', 'Ethyl Butanoate','Butanoate Ethyl','Butyl Ethanoate',\
                     'Ethanoate Butyl','Methyl Ethanoate','Butyl Methanoate','The name of the alcohol comes (Butyl) first followed by the carboxylic acid (Ethanoate) in an ester name.',3),
@@ -75,7 +82,7 @@ moral_quiz = [('NILAI: Kepercayaan kepada Tuhan<br>DEFINISI: __________ sebagai 
 
             ('NILAI: Harga Diri<br>DEFINISI: Keupayaan dan keyakinan diri agar mampu __________ dan __________ maruah diri dalam kehidupan','memulia','menjaga',\
                 'NILAI: Harga Diri<br>DEFINISI: Keupayaan dan keyakinan diri agar mampu <span class="orange">memulia</span> dan <span class="orange">menjaga</span> maruah diri dalam kehidupan'),
-
+ 
             ('NILAI: Bertanggungjawab<br>DEFINISI: Kesanggupan diri seseorang untuk __________ dan __________ tugas serta kewajipan dengan sempurna','memikul','melaksanakan',\
                 'NILAI: Bertanggungjawab<br>DEFINISI: Kesanggupan diri seseorang untuk <span class="orange">memikul dan melaksanakan</span> tugas serta kewajipan dengan sempurna'),
 
@@ -174,3 +181,5 @@ moral_quiz = [('NILAI: Kepercayaan kepada Tuhan<br>DEFINISI: __________ sebagai 
 
             ('NILAI: Saling Menghormati antara Negara<br>DEFINISI: __________ hubungan antara Negara untuk menjamin __________','menghargai dan memuliakan','kesejahteraan sejagat',\
                 'NILAI: Saling Menghormati antara Negara<br>DEFINISI: <span class="orange">Menghargai dan memuliakan</span> hubungan antara Negara untuk menjamin <span class="orange">kesejahteraan sejagat</span>')]
+
+            
