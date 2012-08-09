@@ -105,7 +105,7 @@ class MainHandler(PageHandler):
 chapter_dic = {1: ['Alkanes',alkane, alkane_quiz], 2: ['Alkenes',alkene, alkene_quiz], 3: ['Alcohols',alcohol, alcohol_quiz],
                4: ['Carboxylic Acids',carboxylic, carboxylic_quiz], 5: ['Esters', ester, ester_quiz], 6: ['Fats', fats, ''],
                7: ['Natural Rubber', rubber, ''], 10: ['Pendidikan Moral', moral, moral_quiz], 
-               99: ['','',alcohol_quiz+carboxylic_quiz]}
+               99: ['','',alkane_quiz+alkene_quiz+alcohol_quiz+carboxylic_quiz+ester_quiz]}
 
 
 class LearnHandler(PageHandler):
@@ -227,6 +227,67 @@ class QuizHandler(PageHandler):
             points = '+0', totalpoints=str(points), chapter=chapter)   
 
         
+##### Multiple Choice Quizzes Page (Quiz2Handler) #####
+
+class Quiz2Handler(PageHandler):
+    def get(self, chapter, id):
+        quiz = chapter_dic[int(chapter)][2]
+        past_id = self.request.cookies.get('quiz2_id')
+        
+        if past_id:
+            past_id = past_id.split('|')
+            past_id = [int(i) for i in past_id]
+        else:
+            past_id = []
+
+        points = self.request.cookies.get('points')
+        if points == None:
+            points = 0
+
+        if len(past_id)+1 <= len(quiz):
+            quiz_id = rand(past_id, len(quiz))
+            past_id.append(quiz_id)
+            past_id = [str(i) for i in past_id]
+            past_id = '|'.join(past_id)
+            self.response.headers.add_header('Set-Cookie', 'quiz2_id=%s; Path=/' % past_id)
+            self.render('newquiz.html', quiz=quiz, id=quiz_id, totalpoints=points) 
+        else:
+            self.response.headers.add_header('Set-Cookie', 'quiz2_id=%s; Path=/' % '')
+            self.render('endoflearn.html',totalpoints=points)  
+        
+
+    def post(self, chapter, id):
+        quiz = chapter_dic[int(chapter)][2]
+        past_id = self.request.cookies.get('quiz2_id')
+        past_id = past_id.split('|')
+        past_id = [int(i) for i in past_id]
+        quiz_id = past_id.pop()
+
+
+        answer = self.request.get("quiz%s" % str(quiz_id))
+        correct_answer_id = quiz[quiz_id][-1]
+        
+        points = self.request.cookies.get('points')
+        if points == None:
+            points = 0
+
+        if answer == '':                                            #form validation if no answer is selected
+            self.write("Please click the Back button and select an answer.")
+            return        
+        
+        if int(answer) == quiz[quiz_id][-1]:
+            points = int(points) + 50
+            self.response.headers.add_header('Set-Cookie', 'points=%s; Path=/' % str(points))
+
+            self.render('newanswer2.html', solution = "right", quiz=quiz, id=quiz_id, next=quiz_id, \
+            given_answer = quiz[quiz_id][int(answer)], correct_answer = quiz[quiz_id][correct_answer_id], points = '+50', \
+            totalpoints=str(points), chapter=chapter)        
+        else:
+            self.response.headers.add_header('Set-Cookie', 'points=%s; Path=/' % str(points))
+
+            self.render('newanswer2.html', solution = "wrong", quiz=quiz, id=quiz_id, next=quiz_id, \
+            given_answer = quiz[quiz_id][int(answer)], correct_answer = quiz[quiz_id][correct_answer_id], points = '+0', \
+            totalpoints=str(points), chapter=chapter)
 
 
 ##### SignUp Page #####
@@ -351,6 +412,7 @@ class LogoutHandler(PageHandler):
 app = webapp2.WSGIApplication([('/', MainHandler),
                                ('/home', HomeHandler),
                                ('/quiz/([0-9]+)/([0-9]+)', QuizHandler),
+                               ('/quiz2/([0-9]+)/([0-9]+)', Quiz2Handler),
                                ('/learn/([0-9]+)/([0-9]+)', LearnHandler),
                                ('/submit', SubmitHandler),
                                ('/signup', SignUpHandler),
