@@ -25,7 +25,7 @@ alkane_quiz = [('Which of the following are hydrocarbons?', 'Alkanes and Alkenes
             '2-methylbutane','2-ethylpropane','1,1-dimethylpropane','Pentane','The alkane shown has 4 Carbon atoms on its parent chain so it is a butane.  It has one side chain with 1 Carbon atom \
             - a methyl. This side chain is attached to 2nd Carbon atom of the parent chain - not the 3rd because IUPAC naming convention states that the smaller number is chosen when naming compounds',3),
 
-        ('Which is this is not true for alkanes when the number of Carbon atoms increases?','Boiling point decreases','Insoluble in water', \
+        ('Which is not true for alkanes when the number of Carbon atoms increases?','Boiling point decreases','Insoluble in water', \
           'Soluble in organic solvents','More energy is required to overcome Van der Waals forces', 'Strength of Van der Waals forces increases', 'Boiling point increases', \
           'Alkanes are insoluble in water and soluble in organic compounds. As the number of Carbon atoms increases for an alkane, the strength of Van der Waals forces increases, \
           thus more energy is required to break these bonds and as such boiling point will increase.', 1),

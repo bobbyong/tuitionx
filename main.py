@@ -62,6 +62,7 @@ class User(db.Model):
     password = db.StringProperty(required = True)
     joined = db.DateTimeProperty(auto_now_add = True)
     count = db.IntegerProperty()
+    points = db.IntegerProperty()
 
 class Signup(db.Model):
     email = db.StringProperty(required=True)     
@@ -81,20 +82,19 @@ class MainHandler(PageHandler):
     def get(self):
         user = self.request.cookies.get('user')
         if user:
-            """
-            count = 1
+            user_db = db.GqlQuery("SELECT * FROM User WHERE email = :1", user).get()
+            if user_db:
+                if user_db.count:
+                    count = user_db.count
+                else:
+                    count = 1
+                count += 1
+                user_db.count = count
+                user_db.put()
 
-            user_db = db.GqlQuery("SELECT * FROM User WHERE email = :1", user)
-            user = user_db.get()
-            count = int(user.count)
-            count+=1
-            u = User(count=count)
-            u.put() 
-            """
-
-            self.render('home.html')
+            self.redirect('/home')
         else:
-            self.render('main.html')
+            self.render('main.html') 
 
 
 
@@ -151,6 +151,19 @@ class LearnHandler(PageHandler):
         if int(answer) == quiz[quiz_id][-1]:
             points = int(points) + 50
             self.response.headers.add_header('Set-Cookie', 'points=%s; Path=/' % str(points))
+
+            user = self.request.cookies.get('user')
+            if user:
+                user_db = db.GqlQuery("SELECT * FROM User WHERE email = :1", user).get()
+                if user_db:
+                    if user_db.points:
+                        points = user_db.points
+                    else:
+                        points = 0
+                    points += 50
+                    user_db.points = points
+                    user_db.put()
+
 
             self.render('newanswer.html', solution = "right", quiz=quiz, id=quiz_id, next=learn_id+2, \
             given_answer = quiz[quiz_id][int(answer)], correct_answer = quiz[quiz_id][correct_answer_id], points = '+50', \
@@ -217,6 +230,19 @@ class QuizHandler(PageHandler):
             points = int(points) + 50
             self.response.headers.add_header('Set-Cookie', 'points=%s; Path=/' % str(points))
 
+            user = self.request.cookies.get('user')
+            if user:
+                user_db = db.GqlQuery("SELECT * FROM User WHERE email = :1", user).get()
+                if user_db:
+                    if user_db.points:
+                        points = user_db.points
+                    else:
+                        points = 0
+                    points += 50
+                    user_db.points = points
+                    user_db.put()
+
+
             self.render('answer2.html', solution = "right", quiz=quiz, id=quiz_id, next=quiz_id+2, \
             points = '+50', totalpoints=str(points), chapter=chapter)   
 
@@ -279,6 +305,19 @@ class Quiz2Handler(PageHandler):
             points = int(points) + 50
             self.response.headers.add_header('Set-Cookie', 'points=%s; Path=/' % str(points))
 
+            user = self.request.cookies.get('user')
+            if user:
+                user_db = db.GqlQuery("SELECT * FROM User WHERE email = :1", user).get()
+                if user_db:
+                    if user_db.points:
+                        points = user_db.points
+                    else:
+                        points = 0
+                    points += 50
+                    user_db.points = points
+                    user_db.put()
+
+
             self.render('newanswer2.html', solution = "right", quiz=quiz, id=quiz_id, next=quiz_id, \
             given_answer = quiz[quiz_id][int(answer)], correct_answer = quiz[quiz_id][correct_answer_id], points = '+50', \
             totalpoints=str(points), chapter=chapter)        
@@ -336,14 +375,14 @@ class SignUpHandler(PageHandler):
             self.render('signup.html',title="Sign Up", message = 'Registered already? <a href="/login">Login now!</a>', **params)
 
         else:      
-            u = User(email=email, password=hash_str(password))
-            u.put()     
+            u = User(email=email, password=hash_str(password), count = 1)
+            u.put()   
 
             if remember:
                 self.response.headers.add_header('Set-Cookie', 'user=%s; expires=Tue, 31-Dec-2013 23:59:59 GMT; Path=/' % str(email))
 
             
-            self.render('home.html') 
+            self.redirect('/home') 
 
 
 
@@ -362,6 +401,15 @@ class LoginHandler(PageHandler):
         if user:
             pw = user.password
             if bcrypt.hashpw(password, pw) == pw:
+                
+                if user.count:
+                    count = user.count
+                else:
+                    count = 1
+                count += 1
+                user.count = count
+                user.put()
+                
                 if remember:
                     self.response.headers.add_header('Set-Cookie', 'user=%s; expires=Tue, 31-Dec-2013 23:59:59 GMT; Path=/' % str(email))
 
@@ -375,7 +423,14 @@ class LoginHandler(PageHandler):
 
 class HomeHandler(PageHandler):
     def get(self):
+        user = self.request.cookies.get('user')
+        if not user:
+            self.render('main.html')
+            return 
+
         self.render('home.html')
+
+
 
 
 ##### Submit Handler #####
@@ -414,7 +469,7 @@ app = webapp2.WSGIApplication([('/', MainHandler),
                                ('/quiz/([0-9]+)/([0-9]+)', QuizHandler),
                                ('/quiz2/([0-9]+)/([0-9]+)', Quiz2Handler),
                                ('/learn/([0-9]+)/([0-9]+)', LearnHandler),
-                               ('/submit', SubmitHandler),
+                               ('/feedback', SubmitHandler),
                                ('/signup', SignUpHandler),
                                ('/login', LoginHandler),
                                ('/logout', LogoutHandler)],
