@@ -92,6 +92,12 @@ class MainHandler(PageHandler):
                 user_db.count = count
                 user_db.put()
 
+                if user_db.points:
+                    points = user_db.points
+                else:
+                    points = 0
+                self.response.headers.add_header('Set-Cookie', 'points=%s; Path=/' % str(points))
+
             self.redirect('/home')
         else:
             self.render('main.html') 
@@ -375,7 +381,7 @@ class SignUpHandler(PageHandler):
             self.render('signup.html',title="Sign Up", message = 'Registered already? <a href="/login">Login now!</a>', **params)
 
         else:      
-            u = User(email=email, password=hash_str(password), count = 1)
+            u = User(email=email, password=hash_str(password), count = 1, points = 0)
             u.put()   
 
             if remember:
@@ -410,6 +416,13 @@ class LoginHandler(PageHandler):
                 user.count = count
                 user.put()
                 
+                if user.points:
+                    points = user.points
+                else:
+                    points = 0
+                self.response.headers.add_header('Set-Cookie', 'points=%s; Path=/' % str(points))
+
+
                 if remember:
                     self.response.headers.add_header('Set-Cookie', 'user=%s; expires=Tue, 31-Dec-2013 23:59:59 GMT; Path=/' % str(email))
 
