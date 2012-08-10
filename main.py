@@ -26,6 +26,7 @@ import jinja2
 import logging
 
 from google.appengine.ext import db
+from google.appengine.api import mail
 
 from notes import *
 from quiz import *
@@ -388,6 +389,24 @@ class SignUpHandler(PageHandler):
                 self.response.headers.add_header('Set-Cookie', 'user=%s; expires=Tue, 31-Dec-2013 23:59:59 GMT; Path=/' % str(email))
 
             
+            mail.send_mail(sender="TuitionX <bobby@tuitionx.com>",
+              to="<%s>" % email,
+              subject="Welcome to TuitionX",
+              body="""Hello there!
+
+Thank you for signing up for TuitionX.
+Try our short study guides and quizzes to help you prepare for SPM.
+Our quizzes are randomised so that you get different questions everytime you use them.
+Collect points the more quiz questions you answer correctly.
+
+If you have a smartphone or tablet, do use us when you are out wasting time on the bus!
+Drop us your feedback or suggestions and tell all your friends about TuitionX!
+
+Best regards,
+The TuitionX Team
+Belajar.Hafal.Skor
+""")
+
             self.redirect('/home') 
 
 
